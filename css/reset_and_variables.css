@@ -53,8 +53,8 @@
 
         /* CSS Variables */
         :root {
-            --primary: color(srgb 0.145 0.235 0.612);
-            --secondary: color(srgb 0.176 0.274 0.647);
+            --primary: #ee3342;
+            --secondary: #ee3342;
             --border-color: #d6d9f0;
             --surface: #ffffff;
             --surface-muted: #f8f9fa;
