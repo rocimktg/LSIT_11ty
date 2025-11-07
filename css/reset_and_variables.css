@@ -53,8 +53,8 @@
 
         /* CSS Variables */
         :root {
-            --primary: #2D45A5; /* Lonestar Blue */
-            --secondary: #2D45A5; /* Lonestar Green */
+            --primary: color(srgb 0.145 0.235 0.612);
+            --secondary: color(srgb 0.176 0.274 0.647);
             --border-color: #d6d9f0;
             --surface: #ffffff;
             --surface-muted: #f8f9fa;
