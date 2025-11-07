@@ -134,11 +134,7 @@
             fill: none;
         }
 
-        .utility-item__text--short {
-            display: none;
-        }
-
-        /* Bottom Row - Main Navigation */
+/* Bottom Row - Main Navigation */
         .nav-bottom-row {
             padding: 0;
             display: flex;
@@ -227,15 +223,7 @@
                 font-size: 0.7rem;
             }
 
-            .utility-item__text--full {
-                display: none;
-            }
-
-            .utility-item__text--short {
-                display: inline;
-            }
-
-            .nav-menu a {
+.nav-menu a {
                 padding: 12px 12px;
                 font-size: var(--text-base);
             }
@@ -292,7 +280,6 @@
                 padding: 0 var(--spacing-md);
             }
         }
-
 
         /* CTA Button */
         .cta-button {
@@ -423,12 +410,7 @@
             order: 2;
         }
 
-        .mobile-logo-text {
-            font-size: 0.875rem;
-            letter-spacing: 0.5px;
-        }
-
-        .mobile-menu {
+.mobile-menu {
             display: none;
             background: var(--surface);
             border-bottom: none; /* remove bottom border from mobile menu */
@@ -510,8 +492,6 @@
                 transition: none;
             }
         }
-
-
 
         @media (max-width: 1024px) {
             .main-nav {

@@ -53,20 +53,14 @@
 
         /* CSS Variables */
         :root {
-            --primary: #2a338f; /* Lonestar Blue */
-            --primary-strong: #202776;
-            --primary-hover: #3944c1;
-            --secondary: #2a338f; /* Lonestar Green */
-            --secondary-hover: #3944c1;
-            --tertiary: #e8eaf5; /* light blue tint */
+            --primary: #2D45A5; /* Lonestar Blue */
+            --secondary: #2D45A5; /* Lonestar Green */
             --border-color: #d6d9f0;
-            --border-strong: #2a338f;
             --surface: #ffffff;
             --surface-muted: #f8f9fa;
             --surface-blue: #e8eaf5;
             --surface-green: #b9b8ce62;
-            --surface-red: #fdeaec;
-            --text-dark: #101231;s
+            --text-dark: #101231;
             --text-medium: #3c4164;
             --text-light: #6a6f94;
             --text-xs: 0.75rem;
@@ -81,15 +75,12 @@
             --spacing-xl: 2rem;
             --hero-bg-start: #000000; /* black hero */
             --hero-bg-end: #0a0f2a;
-            --hero-overlay: rgba(0, 0, 0, 0.7);
             --hero-accent: #ee3342; /* CTA Red */
             --hero-accent-hover: #ff4d5b;
             --footer-bg: #000000;
-            --footer-bg-alt: #05070f;
             --footer-bottom-bg: #000000;
             --footer-text: rgba(255, 255, 255, 0.88);
             --footer-muted: rgba(232, 234, 245, 0.65);
             --footer-border: rgba(255, 255, 255, 0.08);
-            --success: #00816f;
             --focus-ring: #00816f;
         }
