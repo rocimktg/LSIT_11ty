@@ -882,6 +882,13 @@
             filter: grayscale(100%);
         }
 
+        @media (max-width: 768px) {
+            .site-footer::after {
+                background-position: center 33%;
+                background-size: clamp(286px, 45vw, 546px);
+            }
+        }
+
         .site-footer__main {
             position: relative;
             z-index: 1;
@@ -902,10 +909,20 @@
             gap: var(--spacing-md);
         }
 
+        .site-footer__logo {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .site-footer__logo img {
+            display: block;
+            max-width: 160px;
+            width: 100%;
+            height: auto;
+        }
+
         .site-footer__logo .logo-text {
-            color: #fff;
-            letter-spacing: 2px;
-            font-size: 1rem;
+            display: none;
         }
 
         .site-footer__tagline {
@@ -1624,7 +1641,7 @@
         }
         .site-footer__column { gap: var(--spacing-md); }
         .site-footer__column--brand { gap: var(--spacing-lg); }
-        .site-footer__logo .logo-text { color: var(--text-dark); }
+        .site-footer__logo .logo-text { display: none; }
         .site-footer__tagline { color: var(--text-medium); }
         .site-footer__contact { gap: var(--spacing-sm); }
         .site-footer__contact-link { color: var(--text-dark); }

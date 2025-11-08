@@ -412,6 +412,13 @@
             max-width: 96px;
             align-self: center;
             margin-right: auto;
+            display: inline-flex;
+        }
+
+        .mobile-nav .logo-image--mobile img {
+            display: block;
+            width: 100%;
+            height: auto;
         }
 
         .mobile-nav .hamburger {
