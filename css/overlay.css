@@ -2,12 +2,15 @@
     position: relative;
     background: #010807;
     color: var(--overlay-body);
+    padding: 0;
 }
 
 .hero--emerald .video-wrap {
     min-height: clamp(520px, 85vh, 960px);
     width: 100vw;
     margin-left: calc(50% - 50vw);
+    margin-top: calc( var(--nav-offset, 0px) * -1 );
+    padding-top: var(--nav-offset, 0px);
 }
 
 .video-wrap {
@@ -252,5 +255,14 @@
 
     45% {
         filter: saturate(1.05);
+    }
+}
+.hero--emerald .text-glass {
+    margin-top: 0;
+}
+
+@media (max-width: 1024px) {
+    .hero--emerald {
+        padding: 0;
     }
 }

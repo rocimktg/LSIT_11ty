@@ -1,9 +1,11 @@
 
         /* Main Navigation */
-        .main-nav {
-            background: var(--surface);
-            border-bottom: none; /* remove bottom border from nav */
-        }
+.main-nav {
+    background: var(--surface);
+    border-bottom: none; /* remove bottom border from nav */
+    position: relative;
+    z-index: 20;
+}
 
         .nav-container {
             width: 100%;
@@ -108,6 +110,10 @@
         a.utility-item.phone:hover .icon,
         a.utility-item.phone:focus-visible .icon {
             color: #646464;
+        }
+
+        :root {
+            --nav-offset: 0px;
         }
 
         @media (max-width: 1024px) {
@@ -341,15 +347,17 @@
         }
 
         /* Mobile Navigation */
-        .mobile-nav {
-            display: none;
-            background: var(--surface);
-            border-bottom: none; /* remove bottom border from mobile nav */
-            padding: var(--spacing-md);
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--spacing-lg);
-        }
+.mobile-nav {
+    display: none;
+    background: var(--surface);
+    border-bottom: none; /* remove bottom border from mobile nav */
+    padding: var(--spacing-md);
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    position: relative;
+    z-index: 20;
+}
 
         .mobile-nav .hamburger {
             width: 48px;
