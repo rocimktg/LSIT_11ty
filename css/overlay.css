@@ -7,10 +7,14 @@
 
 .hero--emerald .video-wrap {
     min-height: clamp(520px, 85vh, 960px);
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-top: calc( var(--nav-offset, 0px) * -1 );
+    width: 100%;
+    margin-left: 0;
+    margin-top: calc(var(--nav-offset, 0px) * -1);
     padding-top: var(--nav-offset, 0px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 }
 
 .video-wrap {
@@ -190,20 +194,31 @@
 }
 
 @media (max-width: 768px) {
-    .text-glass {
+    .text-glass.hero__content {
         position: relative;
         left: auto;
         top: auto;
         margin: clamp(16px, 6vw, 32px) auto;
+        width: min(560px, 100%);
         max-width: 100%;
         max-height: none;
         height: auto;
         transform: none;
         z-index: 10;
+        border-left: 0;
+        border-radius: 18px;
+        padding: clamp(1.25rem, 4vw, 1.75rem) clamp(1.25rem, 5vw, 2rem);
+        align-items: center;
+        text-align: center;
     }
 
     .hero--emerald .video-wrap {
-        min-height: auto;
+        min-height: clamp(420px, 50vh, 560px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding: clamp(20px, 5vw, 32px) clamp(16px, 6vw, 28px) clamp(24px, 7vw, 36px);
     }
 
     .text-glass .hero__actions {

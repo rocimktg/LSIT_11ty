@@ -372,7 +372,7 @@
             padding: calc(var(--spacing-xl) * 2.8) var(--spacing-xl) calc(var(--spacing-xl) * 2.2);
             border-bottom: 1px solid rgba(7, 12, 24, 0.12);
             box-shadow: inset 0 -140px 180px rgba(7, 12, 24, 0.08);
-            border-top:10px solid var(--secondary)
+            border-top: none;
         }
 
         .lead-capture::before,
