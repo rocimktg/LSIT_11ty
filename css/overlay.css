@@ -1,0 +1,256 @@
+.hero--emerald {
+    position: relative;
+    background: #010807;
+    color: var(--overlay-body);
+}
+
+.hero--emerald .video-wrap {
+    min-height: clamp(520px, 85vh, 960px);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
+
+.video-wrap {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(130deg, #022623 0%, #010807 100%);
+}
+
+.video-wrap video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.1) contrast(1.05);
+    z-index: 0;
+}
+
+.video-wrap video[data-paused="true"] {
+    opacity: 0;
+}
+
+.overlay--gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(45deg, rgba(4, 112, 98, 0.85), rgba(0, 0, 0, 0.9));
+    mix-blend-mode: multiply;
+}
+
+.overlay--gradient.is-pulsing {
+    animation: emeraldPulse 9s ease-in-out infinite;
+}
+
+.overlay--grain {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background-image: url('../textures/noise.png');
+    background-size: 192px 192px;
+    mix-blend-mode: overlay;
+    opacity: 0.06;
+    animation: filmGrain 8s steps(8) infinite;
+}
+
+@keyframes filmGrain {
+    0%,
+    100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100px 100px;
+    }
+}
+
+.overlay--vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.text-glass {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: min(640px, 92vw);
+    max-height: 50vh;
+    height: min(50vh, 520px);
+    padding: clamp(1rem, 1.8vw, 1.5rem) clamp(1.1rem, 2.5vw, 1.75rem);
+    color: var(--overlay-heading);
+    background: var(--overlay-panel-gloss);
+    border-left: 4px solid var(--secondary);
+    border-radius: 14px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.text-glass.hero__content {
+    align-items: center;
+    text-align: center;
+}
+
+.text-glass .hero__eyebrow {
+    letter-spacing: 0.45em;
+    color: rgba(228, 255, 247, 0.72);
+}
+
+.text-glass .hero__title {
+    color: #ffffff;
+}
+
+.text-glass .hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Arial', sans-serif;
+    max-width: 60ch;
+}
+
+.text-glass .hero__actions {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: clamp(0.75rem, 2vw, 1rem);
+    flex-wrap: wrap;
+}
+
+.text-glass .hero__button {
+    max-width: 100%;
+    min-width: 0;
+    flex: 1 1 220px;
+}
+
+.hero--emerald .hero__actions .hero__button {
+    min-width: 0;
+    flex: 1 1 220px;
+}
+
+.hero--emerald .hero__button--primary {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 18px 36px rgba(7, 143, 124, 0.35);
+}
+
+.hero--emerald .hero__button--primary:hover,
+.hero--emerald .hero__button--primary:focus-visible {
+    background: var(--primary-strong);
+}
+
+.hero--emerald .hero__button--secondary {
+    border-color: rgba(228, 255, 247, 0.5);
+    color: rgba(228, 255, 247, 0.9);
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.hero--emerald .hero__button--secondary:hover,
+.hero--emerald .hero__button--secondary:focus-visible {
+    background: rgba(228, 255, 247, 0.9);
+    color: #021b16;
+    border-color: transparent;
+}
+
+.hero--emerald .hero__actions {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero--emerald .hero__button {
+    min-width: auto;
+}
+
+@media (max-width: 1024px) {
+    .text-glass {
+        max-width: min(520px, 90vw);
+        max-height: none;
+        height: auto;
+    }
+
+    .text-glass .hero__actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .hero--emerald .hero__actions .hero__button {
+        width: min(320px, 100%);
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .text-glass {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin: clamp(16px, 6vw, 32px) auto;
+        max-width: 100%;
+        max-height: none;
+        height: auto;
+        transform: none;
+        z-index: 10;
+    }
+
+    .hero--emerald .video-wrap {
+        min-height: auto;
+    }
+
+    .text-glass .hero__actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .hero--emerald .hero__actions .hero__button {
+        width: min(320px, 100%);
+        min-width: 0;
+        flex: 0 0 auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .overlay--grain {
+        animation: none;
+        opacity: 0.04;
+    }
+
+    .overlay--gradient.is-pulsing {
+        animation: none;
+    }
+
+    .video-wrap video {
+        transition: none;
+    }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .text-glass {
+        background: var(--overlay-panel-gloss-fallback);
+    }
+}
+
+@supports not (mix-blend-mode: multiply) {
+    .overlay--gradient {
+        mix-blend-mode: normal;
+        background: linear-gradient(45deg, rgba(4, 112, 98, 0.92), rgba(0, 0, 0, 0.92));
+    }
+}
+
+@keyframes emeraldPulse {
+    0%,
+    100% {
+        filter: saturate(1);
+    }
+
+    45% {
+        filter: saturate(1.05);
+    }
+}
