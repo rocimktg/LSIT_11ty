@@ -54,9 +54,9 @@
 
         /* CSS Variables */
         :root {
-            --primary: #078f7c;
-            --primary-strong: #047062;
-            --secondary: #10a590;
+            --primary: #ee3342;
+            --primary-strong: #ee3342;
+            --secondary: #ee3342;
             --overlay-heading: #e4fff7;
             --overlay-body: #ffffff;
             --overlay-panel-gloss: rgba(0, 0, 0, 0.5);

@@ -91,26 +91,26 @@
             color: var(--primary);
         }
 
-        .utility-item.phone {
-            font-weight: 700;
-            color: var(--secondary);
-            font-size: var(--text-lg);
-        }
+.utility-item.phone {
+    font-weight: 700;
+    color: #646464;
+    font-size: var(--text-lg);
+}
 
-        /* Phone hover becomes CTA red */
-        a.utility-item.phone:hover,
-        a.utility-item.phone:focus-visible {
-            color: var(--hero-accent);
-        }
+/* Phone hover becomes CTA red */
+a.utility-item.phone:hover,
+a.utility-item.phone:focus-visible {
+    color: var(--hero-accent);
+}
 
-        /* Phone icon remains gray (#646464) at all times */
-        .utility-item.phone .icon {
-            color: #646464;
-        }
-        a.utility-item.phone:hover .icon,
-        a.utility-item.phone:focus-visible .icon {
-            color: #646464;
-        }
+/* Phone icon follows text color */
+.utility-item.phone .icon {
+    color: currentColor;
+}
+a.utility-item.phone:hover .icon,
+a.utility-item.phone:focus-visible .icon {
+    color: currentColor;
+}
 
         :root {
             --nav-offset: 0px;
