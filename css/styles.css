@@ -2325,6 +2325,11 @@ html { scroll-behavior: smooth; }
   color: #5c0b12;
 }
 
+.form-success[hidden],
+.form-error[hidden] {
+  display: none !important;
+}
+
 .contact-info {
   display: grid;
   gap: 18px;
