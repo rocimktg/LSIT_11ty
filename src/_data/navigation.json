@@ -1,0 +1,13 @@
+{
+  "cta": {
+    "label": "Claim Free Week",
+    "href": "/#free-week"
+  },
+  "utility": [
+    {
+      "label": "(682) 554-8531",
+      "href": "tel:+16825548531",
+      "icon": "phone"
+    }
+  ]
+}

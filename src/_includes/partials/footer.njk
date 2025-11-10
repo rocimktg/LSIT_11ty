@@ -1,0 +1,151 @@
+{% set navItems = collections.all | eleventyNavigation %}
+<section class="tenets-cta" aria-label="Ready to begin">
+  <div class="tenets-cta__inner">
+    <p class="tenets-cta__eyebrow">Ready to get started?</p>
+    <div class="tenets-cta__actions">
+      <a class="tenets-cta__link tenets-cta__link--primary" href="/#free-week">Claim a free week of classes</a>
+      <span aria-hidden="true" class="tenets-cta__divider">|</span>
+      <a class="tenets-cta__link tenets-cta__link--secondary" href="/contact/">Or contact us</a>
+    </div>
+  </div>
+</section>
+
+<section class="tenets-marquee" aria-labelledby="tenets-heading">
+  <h2 id="tenets-heading" class="visually-hidden">The Five Tenets of Taekwondo</h2>
+
+  <div class="tenets-marquee__viewport tenets-marquee__viewport--desktop" aria-hidden="false">
+    <div class="tenets-marquee__track">
+      {% for tenet in tenets %}
+      <article class="tenet" role="group" aria-label="{{ tenet.title }}">
+        <div class="tenet__inner {{ tenet.modifier }}">
+          <div class="tenet__hangul" lang="ko">{{ tenet.hangul }}</div>
+          <h3 class="tenet__title">{{ tenet.title }}</h3>
+          <div class="tenet__romanization">{{ tenet.romanization }}</div>
+          <p class="tenet__desc">{{ tenet.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
+      {% for tenet in tenets %}
+      <article class="tenet" role="group" aria-label="{{ tenet.title }}" aria-hidden="true">
+        <div class="tenet__inner {{ tenet.modifier }}">
+          <div class="tenet__hangul" lang="ko">{{ tenet.hangul }}</div>
+          <h3 class="tenet__title">{{ tenet.title }}</h3>
+          <div class="tenet__romanization">{{ tenet.romanization }}</div>
+          <p class="tenet__desc">{{ tenet.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="tenets-carousel" aria-label="Swipe through the five tenets">
+    <div class="tenets-carousel__viewport">
+      {% for tenet in tenets %}
+      <article class="tenet" role="group" aria-label="{{ tenet.title }}">
+        <div class="tenet__inner {{ tenet.modifier }}">
+          <div class="tenet__hangul" lang="ko">{{ tenet.hangul }}</div>
+          <h3 class="tenet__title">{{ tenet.title }}</h3>
+          <div class="tenet__romanization">{{ tenet.romanization }}</div>
+          <p class="tenet__desc">{{ tenet.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="tenets-carousel__dots" role="tablist" aria-label="Select a tenet"></div>
+  </div>
+</section>
+
+<footer class="site-footer" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="visually-hidden">{{ site.title }} footer</h2>
+  <div class="site-footer__main">
+    <div class="site-footer__column site-footer__column--brand">
+      <a href="/" class="site-footer__logo" aria-label="{{ site.title }} home">
+        <img src="/assets/img/lsit_logo.svg" alt="{{ site.title }} logo">
+        <span class="logo-text">LONE STAR<br>INSTITUTE OF<br>TAEKWANDO</span>
+      </a>
+      <p class="site-footer__tagline">Building confident leaders through disciplined martial arts training for every age and stage.</p>
+      <address class="site-footer__contact" aria-label="Contact information">
+        <a href="https://maps.google.com/?q={{ site.address.street | replace(' ', '+') }}+{{ site.address.city | replace(' ', '+') }}+{{ site.address.state }}+{{ site.address.postal }}" class="site-footer__contact-link">
+          <i data-lucide="map-pin" aria-hidden="true"></i>
+          {{ site.address.street }}<br>{{ site.address.city }}, {{ site.address.state }} {{ site.address.postal }}
+        </a>
+        <a href="{{ site.phoneHref }}" class="site-footer__contact-link">
+          <i data-lucide="phone" aria-hidden="true"></i>
+          {{ site.phone }}
+        </a>
+        <a href="mailto:{{ site.email }}" class="site-footer__contact-link">
+          <i data-lucide="mail" aria-hidden="true"></i>
+          {{ site.email }}
+        </a>
+      </address>
+    </div>
+
+    <nav class="site-footer__column" aria-labelledby="footer-quick-links-heading">
+      <h3 id="footer-quick-links-heading" class="site-footer__heading">Quick Links</h3>
+      <ul class="site-footer__list">
+        {% for item in navItems %}
+        <li><a href="{{ item.url | url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <nav class="site-footer__column" aria-labelledby="footer-programs-heading">
+      <h3 id="footer-programs-heading" class="site-footer__heading">Our Programs</h3>
+      <ul class="site-footer__list">
+        <li><a href="/programs/#youth">Youth Programs</a></li>
+        <li><a href="/programs/#adult">Adult Programs</a></li>
+        <li><a href="/programs/#advanced">Advanced Programs</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-footer__column site-footer__column--media" aria-labelledby="footer-video-heading">
+      <h3 id="footer-video-heading" class="site-footer__heading">How to Tie Your Belt</h3>
+      <p class="site-footer__newsletter-text">Watch our quick tutorial so you're ready before stepping on the mat.</p>
+      <div class="site-footer__video" role="group" aria-label="Instructional video: How to Tie Your Belt">
+        <iframe
+          src="https://www.youtube.com/embed/ZHXuFQp9OQs?start=1"
+          title="How to Tie Your Belt"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <a class="site-footer__video-link" href="https://www.youtube.com/watch?v=ZHXuFQp9OQs&t=1s" target="_blank" rel="noopener noreferrer">
+        watch on youtube
+      </a>
+    </div>
+  </div>
+
+  <section class="site-footer__trust" aria-label="Trust indicators">
+    <div class="site-footer__trust-item site-footer__trust-item--label">Proud members of:</div>
+    <div class="site-footer__trust-item">
+      <img class="site-footer__trust-icon" src="/assets/img/watermarks/eagle_icon.png" alt="Texas Karate League logo" loading="lazy">
+      <a href="https://texaskarateleague.com/" target="_blank" rel="noopener noreferrer">Texas Karate League</a>
+    </div>
+    <div class="site-footer__trust-item">
+      <img class="site-footer__trust-icon" src="/assets/img/watermarks/texas_icon.png" alt="Texas State Taekwondo Association logo" loading="lazy">
+      <a href="https://www.txtkd.org/" target="_blank" rel="noopener noreferrer">Texas State Taekwondo Association</a>
+    </div>
+    <div class="site-footer__trust-item">
+      <img class="site-footer__trust-icon" src="/assets/img/watermarks/usa_icon.png" alt="USA Taekwondo logo" loading="lazy">
+      <a href="https://www.usatkd.org/" target="_blank" rel="noopener noreferrer">USA Taekwondo</a>
+    </div>
+  </section>
+
+  <div class="site-footer__bottom">
+    <p class="site-footer__copyright">&copy; {{ year() }} {{ site.title }}. All rights reserved.</p>
+    <div class="site-footer__legal">
+      <a href="#privacy">Privacy Policy</a>
+      <span aria-hidden="true">|</span>
+      <a href="#terms">Terms of Service</a>
+      <span aria-hidden="true">|</span>
+      <a href="#accessibility">Accessibility</a>
+    </div>
+    <p class="site-footer__credit">Website by <a href="https://rocinantemarketing.com">Rocinante Marketing</a></p>
+  </div>
+</footer>
+
+<button class="back-to-top" type="button" aria-label="Back to top">
+  <i data-lucide="chevron-up" aria-hidden="true"></i>
+</button>

@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us — Lone Star Institute of Taekwondo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/reset_and_variables.css">
-</head>
-<body class="contact-page">
-  <div id="nav-placeholder"></div>
+---
+layout: layouts/page.njk
+title: Contact
+description: Get in touch with Lone Star Institute of Taekwondo for schedules, pricing, and enrollment.
+permalink: /contact/
+eleventyNavigation:
+  key: Contact
+  order: 6
+---
 
-  <main>
     <section class="page-hero page-hero--contact" aria-label="Contact Lone Star Institute of Taekwondo">
       <div class="page-hero__inner">
         <h1 class="page-hero__title">Ready to Start Your Taekwondo Journey?</h1>
@@ -29,7 +24,7 @@
               id="contact-form"
               name="contact"
               class="contact-form"
-              action="/contact"
+              action="/contact/"
               method="post"
               netlify
               data-netlify="true"
@@ -150,19 +145,5 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <div id="footer-placeholder"></div>
-
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    lucide.createIcons();
-  </script>
-
-  <script src="load-nav.js" defer></script>
-  <script src="load-footer.js" defer></script>
-  <script src="tenets-marquee.js" defer></script>
-  <script src="menu.js" defer></script>
-  <script src="js/contact.js" defer></script>
-</body>
-</html>
+  

@@ -1,113 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About • Lonestar Institute of Taekwondo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Page-scoped helpers for secondary pages (use brand tokens from :root) */
-    .page-container { width: min(1200px, 92vw); margin: 0 auto; }
-    .section { padding: clamp(48px, 8vw, 88px) 0; }
-    .kicker { font-family: Arial, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: var(--secondary); font-size: .85rem; }
-    .h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: .5px; }
-    .h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); line-height: 1.2; letter-spacing: .3px; }
-    .lead { font-family: Arial, sans-serif; color: var(--text-medium); font-size: clamp(1rem, 2.5vw, 1.125rem); line-height: 1.7; }
-    .content { font-family: Arial, sans-serif; color: var(--text-medium); line-height: 1.8; font-size: 1rem; }
+---
+layout: layouts/page.njk
+title: About
+description: Learn about the Lone Star Institute of Taekwondo philosophy and team.
+permalink: /about/
+eleventyNavigation:
+  key: About
+  order: 2
+---
 
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .9rem 1.5rem; border-radius: 999px; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
-    .btn:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
-    .btn-primary { background: var(--hero-accent); color: #fff; box-shadow: 0 18px 34px rgba(238, 51, 66, .26); }
-    .btn-primary:hover { background: var(--hero-accent-hover); transform: translateY(-2px); }
-    .btn-secondary { color: var(--primary); border: 2px solid var(--primary); background: #fff; }
-    .btn-secondary:hover { color: #fff; background: var(--secondary); border-color: transparent; transform: translateY(-2px); }
-
-    /* 1. Narrow Hero */
-    .sub-hero { position: relative; display: grid; place-items: center; min-height: 300px; background:
-      linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.6)),
-      url('https://source.unsplash.com/1600x600/?architecture,dojo') center/cover no-repeat; color: #fff; text-align: center; }
-    .sub-hero__inner { padding: clamp(32px, 6vw, 72px) 0; display: grid; gap: 12px; }
-    .sub-hero__title { font-size: clamp(2rem, 4.5vw, 3rem); letter-spacing: .5px; text-transform: uppercase; }
-    .sub-hero__subtitle { font-family: Arial, sans-serif; color: rgba(255,255,255,.85); font-size: clamp(1rem, 2.5vw, 1.1rem); }
-
-    /* 2. Intro */
-    .intro { text-align: center; }
-    .intro .content { max-width: 70ch; margin-inline: auto; }
-
-    /* 3. Feature Cards */
-    .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 3vw, 24px); }
-    .feature-card { background: #fff; border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; display: grid; gap: 12px; box-shadow: 0 8px 24px rgba(16,18,49,.06); }
-    .feature-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; }
-    .feature-card h3 { font-size: 1.1rem; letter-spacing: .02em; }
-    .feature-card a { color: var(--primary); font-weight: 600; }
-    .feature-card a:hover { color: var(--secondary); }
-
-    /* 4 & 6. Split sections */
-    .split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 4vw, 48px); align-items: center; }
-    .split__media img { width: 100%; height: clamp(280px, 40vw, 420px); object-fit: cover; border-radius: 16px; }
-    .split .content { max-width: 54ch; }
-
-    /* 5. Stats Bar */
-    .stats { background: var(--surface-blue); }
-    .stats__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; text-align: center; }
-    .stat__num { color: var(--primary); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; }
-    .stat__label { font-family: Arial, sans-serif; color: var(--text-medium); }
-    .stat__desc { font-family: Arial, sans-serif; color: var(--text-light); font-size: .9rem; }
-
-    /* 7. Gallery */
-    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2vw, 18px); }
-    .gallery__item { position: relative; overflow: hidden; border-radius: 14px; background: #000; }
-    .gallery__item img { width: 100%; height: 100%; aspect-ratio: 5 / 4; object-fit: cover; transition: transform .3s ease, opacity .3s ease; opacity: .92; }
-    .gallery__meta { position: absolute; inset: auto 0 0 0; padding: 14px; color: #fff; background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.5)); }
-    .gallery__item:hover img { transform: scale(1.03); opacity: 1; }
-
-    /* 8. Testimonial */
-    .testimonial { background: var(--surface-green); text-align: center; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
-    .testimonial blockquote { font-size: clamp(1.25rem, 3vw, 1.6rem); line-height: 1.5; color: var(--text-dark); max-width: 60ch; margin: 0 auto; font-style: italic; }
-    .testimonial__author { margin-top: 12px; font-family: Arial, sans-serif; color: var(--text-medium); }
-    .testimonial__avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin: 12px auto 0; border: 2px solid var(--primary); }
-
-    /* 9. Accordions */
-    .faq { max-width: 900px; margin: 0 auto; }
-    .accordion { border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; background: #fff; }
-    .accordion__item + .accordion__item { border-top: 1px solid var(--border-color); }
-    .accordion__button { width: 100%; text-align: left; background: #fff; color: var(--text-dark); padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; font-weight: 700; }
-    .accordion__button:hover { background: var(--surface-blue); }
-    .accordion__panel { display: none; padding: 0 18px 16px; color: var(--text-medium); font-family: Arial, sans-serif; }
-
-    /* 10. Services/Process */
-    .process { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-    .process__item { display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: start; background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; }
-    .process__icon { width: 56px; height: 56px; border-radius: 12px; background: var(--surface-blue); display: grid; place-items: center; font-weight: 800; color: var(--primary); }
-
-    /* 11. Image Break */
-    .image-break { min-height: 360px; background:
-      linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
-      url('https://source.unsplash.com/1600x700/?martial-arts,training') center/cover no-repeat; }
-
-    /* 12. CTA Banner */
-    .cta-banner { text-align: center; color: #fff; position: relative; overflow: hidden; background:
-      linear-gradient(135deg, rgba(42, 51, 143, .85), rgba(0, 129, 111, .85)),
-      url('https://source.unsplash.com/1600x500/?abstract') center/cover no-repeat; }
-    .cta-banner__inner { position: relative; z-index: 1; }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .features { grid-template-columns: 1fr 1fr; }
-      .split { grid-template-columns: 1fr; }
-      .stats__grid { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
-      .gallery { grid-template-columns: 1fr 1fr; }
-      .process { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .features { grid-template-columns: 1fr; }
-      .gallery { grid-template-columns: 1fr; }
-      .stats__grid { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
-</head>
-<body>
   <!-- 1. Hero Section - Narrow Banner -->
   <header class="sub-hero" role="banner">
     <div class="sub-hero__inner page-container">
@@ -324,36 +224,10 @@
       <h2 class="h2" style="color:#fff;">Ready to Train?</h2>
       <p class="lead" style="color:rgba(255,255,255,.9);">Claim your free week and take the first step today.</p>
       <div style="display:flex; gap:12px; justify-content:center; margin-top:8px;">
-        <a href="index.html#free-week" class="btn btn-primary">Claim Free Week</a>
+        <a href="/#free-week" class="btn btn-primary">Claim Free Week</a>
         <a href="tel:+16825548531" class="btn btn-secondary">Call Us</a>
       </div>
     </div>
   </section>
 
-  <script>
-    // Simple accordion logic: only one open at a time
-    (function(){
-      const root = document.getElementById('faq');
-      if (!root) return;
-      const items = Array.from(root.querySelectorAll('.accordion__item'));
-      items.forEach(item => {
-        const btn = item.querySelector('.accordion__button');
-        const panel = item.querySelector('.accordion__panel');
-        btn.addEventListener('click', () => {
-          const expand = btn.getAttribute('aria-expanded') === 'true';
-          // close all
-          items.forEach(i => {
-            i.querySelector('.accordion__button').setAttribute('aria-expanded', 'false');
-            i.querySelector('.accordion__panel').style.display = 'none';
-          });
-          // open current if it was closed
-          if (!expand) {
-            btn.setAttribute('aria-expanded', 'true');
-            panel.style.display = 'block';
-          }
-        });
-      });
-    })();
-  </script>
-</body>
-</html>
+

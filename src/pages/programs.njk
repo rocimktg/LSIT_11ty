@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programs — Lonestar Institute of Taekwondo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/reset_and_variables.css">
+---
+layout: layouts/page.njk
+title: Programs
+description: Explore youth, adult, and advanced Taekwondo programs at Lone Star Institute.
+permalink: /programs/
+eleventyNavigation:
+  key: Programs
+  order: 3
+---
 
-  
-</head>
-<body>
-  <div id="nav-placeholder"></div>
-
-  <main>
     <!-- Page banner with black overlay and large title -->
     <section class="page-hero" aria-label="Programs">
       <div class="page-hero__inner">
@@ -58,7 +51,7 @@
         <div class="program-split">
           <article class="card program-card">
             <div class="program-card__media" aria-hidden="true">
-              <img src="img/ninjas.jpg" alt="Little Ninjas practicing in class">
+              <img src="/assets/img/ninjas.jpg" alt="Little Ninjas practicing in class">
             </div>
             <div>
               <p class="kicker">Ages 3–5</p>
@@ -71,7 +64,7 @@
 
           <article class="card program-card">
             <div class="program-card__media" aria-hidden="true">
-              <img src="img/youth0.jpg" alt="Youth students training in Taekwondo">
+              <img src="/assets/img/youth0.jpg" alt="Youth students training in Taekwondo">
             </div>
             <div>
               <p class="kicker">Ages 6–17</p>
@@ -100,8 +93,8 @@
 
           <article class="card">
             <div class="media-stack" aria-hidden="true">
-              <div class="program-card__media"><img src="img/adult0.jpg" alt="Adults training in class"></div>
-              <div class="program-card__media"><img src="img/adult2.jpg" alt="Adult student practicing a kick"></div>
+              <div class="program-card__media"><img src="/assets/img/adult0.jpg" alt="Adults training in class"></div>
+              <div class="program-card__media"><img src="/assets/img/adult2.jpg" alt="Adult student practicing a kick"></div>
             </div>
           </article>
         </div>
@@ -122,7 +115,7 @@
         <div class="advanced-grid">
           <article class="card advanced-card">
             <div class="program-card__media" aria-hidden="true">
-              <img src="img/sparring.avif" alt="Students sparring in a supervised class">
+              <img src="/assets/img/sparring.avif" alt="Students sparring in a supervised class">
             </div>
             <h3>Sparring</h3>
             <p>As students progress to orange belt and beyond, they're ready to take their training to the next level. In our controlled sparring classes, students of all ages apply their techniques against partners in a safe, supervised setting—building timing, strategy, and confidence under pressure.</p>
@@ -130,7 +123,7 @@
 
           <article class="card advanced-card">
             <div class="program-card__media" aria-hidden="true">
-              <img src="img/breaking.gif" alt="Student breaking boards during a demonstration" loading="eager" decoding="async">
+              <img src="/assets/img/breaking.gif" alt="Student breaking boards during a demonstration" loading="eager" decoding="async">
             </div>
             <h3>Breaking</h3>
             <p>Students also master the art of breaking boards and bricks, a powerful demonstration of focus, technique, and mental discipline. Breaking through that first board is a transformational moment that proves you're capable of more than you ever imagined—whether you're 8 or 48.</p>
@@ -138,7 +131,7 @@
 
           <article class="card advanced-card">
             <div class="program-card__media" aria-hidden="true">
-              <img src="img/competition.avif" alt="Athletes competing at a Taekwondo tournament">
+              <img src="/assets/img/competition.avif" alt="Athletes competing at a Taekwondo tournament">
             </div>
             <h3>Competition</h3>
             <p>For those who love competition, LSIT is a proud member of the Texas Karate League, Texas State Taekwondo Association, and USA Taekwondo, with students regularly competing at local, state, and national levels in both forms and sparring.</p>
@@ -146,57 +139,5 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <div id="footer-placeholder"></div>
-
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
-    </script>
-
-
-  <script src="load-nav.js" defer></script>
-  <script src="load-footer.js" defer></script>
-  <script src="tenets-marquee.js" defer></script>
-  <script src="menu.js" defer></script>
-  <script>
-    window.addEventListener("DOMContentLoaded", function () {
-      const sections = Array.from(document.querySelectorAll(".loc-section"));
-      const pills = Array.from(document.querySelectorAll(".loc-track .pill"));
-      const hero = document.querySelector(".page-hero");
-      if (!sections.length || !pills.length) return;
-
-      const findPill = id => pills.find(p => p.getAttribute("href") === `#${id}`);
-      const defaultPill = pills[0] || null;
-
-      const setActive = pill => {
-        pills.forEach(p => {
-          p.classList.remove("active");
-          p.removeAttribute("aria-current");
-        });
-        if (pill) {
-          pill.classList.add("active");
-          pill.setAttribute("aria-current", "true");
-        }
-      };
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          if (hero && entry.target === hero) {
-            if (defaultPill) setActive(defaultPill);
-            return;
-          }
-          const pill = findPill(entry.target.id);
-          if (pill) setActive(pill);
-        });
-      }, { rootMargin: "-15% 0px -60% 0px", threshold: 0.1 });
-
-      sections.forEach(section => observer.observe(section));
-      if (hero) observer.observe(hero);
-      pills.forEach(pill => pill.addEventListener("click", () => pill.blur()));
-    });
-  </script>
-</body>
-</html>
+  

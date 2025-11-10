@@ -1,0 +1,42 @@
+[
+  {
+    "key": "courtesy",
+    "title": "Courtesy",
+    "hangul": "예의",
+    "romanization": "Ye-wee",
+    "description": "Courtesy, or 예의 (ye-wee), reminds us to show respect in the dojang and beyond through sincere etiquette and kindness.",
+    "modifier": "tenet--courtesy"
+  },
+  {
+    "key": "integrity",
+    "title": "Integrity",
+    "hangul": "염치",
+    "romanization": "Yom-chee",
+    "description": "Integrity, or 염치 (yom-chee), calls for honesty, strong morals, and the courage to do what is right even when it is difficult.",
+    "modifier": "tenet--integrity"
+  },
+  {
+    "key": "perseverance",
+    "title": "Perseverance",
+    "hangul": "인내",
+    "romanization": "Een-nay",
+    "description": "Perseverance, or 인내 (een-nay), is the willingness to keep pushing toward every goal despite obstacles in training or life.",
+    "modifier": "tenet--perseverance"
+  },
+  {
+    "key": "self-control",
+    "title": "Self Control",
+    "hangul": "극기",
+    "romanization": "Gook-gee",
+    "description": "Self control, or 극기 (gook-gee), keeps thoughts, emotions, and actions in balance so we can respond with a steady mind and body.",
+    "modifier": "tenet--selfcontrol"
+  },
+  {
+    "key": "spirit",
+    "title": "Indomitable Spirit",
+    "hangul": "백절불굴",
+    "romanization": "Baekjool Boolgool",
+    "description": "Indomitable spirit, or 백절불굴 (baekjool boolgool), to be defeated a hundred times yet never bent - the heart of true strength.",
+    "modifier": "tenet--spirit"
+  }
+]

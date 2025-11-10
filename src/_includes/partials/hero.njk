@@ -1,0 +1,36 @@
+<section class="hero hero--emerald" aria-labelledby="hero-heading">
+  <div class="video-wrap">
+    <video class="hero__video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="/assets/img/hero-poster.jpg" aria-hidden="true">
+      <source src="/assets/video/LSIT_BW.mp4" type="video/mp4">
+    </video>
+    {% image "fallback.jpg", "", {
+      className: "hero__fallback",
+      sizes: "(min-width: 1024px) 50vw, 100vw",
+      widths: [640, 1280]
+    } %}
+
+    <div class="overlay--gradient is-pulsing" aria-hidden="true"></div>
+    <div class="overlay--grain" aria-hidden="true"></div>
+    <div class="overlay--vignette" aria-hidden="true"></div>
+
+    <div class="text-glass hero__content">
+      <p class="hero__eyebrow">{{ site.title }}</p>
+      <h1 id="hero-heading" class="hero__title">
+        Martial Arts for the Whole Family
+      </h1>
+      <p class="hero__subtitle">
+        Discover award-winning classes for kids, teens, and adults guided by world-class instructors dedicated to confidence, discipline, and real self-defense.
+      </p>
+      <div class="hero__actions">
+        <a href="/#free-week" class="hero__button hero__button--primary">
+          <span class="hero__button-label">Claim Free Week</span>
+          <i data-lucide="calendar" aria-hidden="true"></i>
+        </a>
+        <a href="{{ site.phoneHref }}" class="hero__button hero__button--secondary">
+          <span class="hero__button-label">Call Today</span>
+          <i data-lucide="phone" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+---
+layout: layouts/base.njk
+eleventyComputed:
+  metaTitle: "{{ title ? title ~ ' | ' ~ site.title : site.title }}"
+  metaDescription: "{{ description or site.description }}"
+  canonicalUrl: "{{ site.url }}{{ page.url }}"
+---
+{% block content %}
+{{ content | safe }}
+{% endblock %}

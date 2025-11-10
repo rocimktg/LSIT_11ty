@@ -1,0 +1,61 @@
+{% set navItems = collections.all | eleventyNavigation %}
+<nav class="main-nav">
+  <div class="nav-container">
+    <a href="/" class="logo-box" aria-label="{{ site.title }} home">
+      <img src="/assets/img/lsit_logo.svg" class="logo-image" alt="{{ site.title }}">
+    </a>
+
+    <div class="nav-content">
+      <div class="nav-top-row">
+        <div class="brand-tagline">{{ site.title }}</div>
+        <div class="utility-links">
+          {% for link in navigation.utility %}
+          <a href="{{ link.href }}" class="utility-item {{ link.icon }}">
+            {% if link.icon %}
+            <span class="icon" aria-hidden="true"><i data-lucide="{{ link.icon }}"></i></span>
+            {% endif %}
+            <span>{{ link.label }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="nav-bottom-row">
+        <div class="nav-menu">
+          {% for item in navItems %}
+          <a href="{{ item.url | url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>
+            {{ item.title }}
+          </a>
+          {% endfor %}
+        </div>
+
+        {% if navigation.cta %}
+        <a href="{{ navigation.cta.href }}" class="cta-button cta-button--nav">
+          {{ navigation.cta.label }}
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<nav class="mobile-nav">
+  <a href="/" class="logo-image logo-image--mobile" aria-label="{{ site.title }} home">
+    <img src="/assets/img/lsit_logo.svg" alt="{{ site.title }}">
+  </a>
+  <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+  <ul class="mobile-menu__list">
+    {% for item in navItems %}
+    <li><a href="{{ item.url | url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
+    {% endfor %}
+    {% if navigation.cta %}
+    <li class="mobile-menu__cta">
+      <a href="{{ navigation.cta.href }}" class="cta-button cta-button--nav">{{ navigation.cta.label }}</a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>

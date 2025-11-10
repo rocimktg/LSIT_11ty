@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instructors — Lone Star Institute of Taekwondo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/reset_and_variables.css">
-</head>
-<body>
-  <div id="nav-placeholder"></div>
+---
+layout: layouts/page.njk
+title: Instructors
+description: Meet the senior instructors leading classes at Lone Star Institute of Taekwondo.
+permalink: /instructors/
+eleventyNavigation:
+  key: Instructors
+  order: 5
+---
 
-  <main>
     <section class="page-hero page-hero--instructors" aria-label="Instructors">
       <div class="page-hero__inner">
         <h1 class="page-hero__title" id="instructors-title">Instructors</h1>
@@ -31,7 +26,7 @@
     <section class="instructor-scroll-banner" aria-label="Lonestar instructor credentials">
       <div class="instructor-scroll-banner__inner">
         <div class="instructor-scroll-banner__content">
-          <img class="instructor-scroll-banner__icon" src="img/watermarks/black_belt_icon.png" alt="Black belt illustration">
+          <img class="instructor-scroll-banner__icon" src="/assets/img/watermarks/black_belt_icon.png" alt="Black belt illustration">
           <p>
             Lone Star Institute of Taekwondo's certified black belt instructors (1st-7th degree) are recognized by the United States Taekwondo Grand Masters Society, with many also part of USA Taekwondo. With over 100 years of combined experience, they share their passion and uphold Taekwondo's tenets through dedicated instruction.
           </p>
@@ -46,7 +41,7 @@
             <div class="instructor-card__body">
             <div class="instructor-card__bio">
               <div class="instructor-card__identity">
-                <img class="instructor-card__avatar" src="img/instructors/master_k.png" alt="Master David Kestenbaum smiling in uniform">
+                <img class="instructor-card__avatar" src="/assets/img/instructors/master_k.png" alt="Master David Kestenbaum smiling in uniform">
                 <div class="instructor-card__identity-text">
                   <p class="kicker">Owner / Head Instructor</p>
                   <h2 class="instructor-card__name">Master David Kestenbaum</h2>
@@ -82,7 +77,7 @@
 
             <div class="instructor-card__gallery">
               <figure class="instructor-card__media">
-                <img src="img/instructors/master_k_action1.jpg" alt="Master David Kestenbaum executing a flying side kick during a demonstration">
+                <img src="/assets/img/instructors/master_k_action1.jpg" alt="Master David Kestenbaum executing a flying side kick during a demonstration">
               </figure>
               <blockquote class="instructor-card__quote">
                 <p>“Our mission has always been simple — to build stronger people, not just stronger kicks. Taekwondo is a lifelong pursuit of balance, respect, and courage, and we’re honored to guide each student on that journey.”</p>
@@ -98,7 +93,7 @@
             <div class="instructor-card__body">
             <div class="instructor-card__bio">
               <div class="instructor-card__identity">
-                <img class="instructor-card__avatar" src="img/instructors/master_y.png" alt="Master Jenny Yu smiling in uniform">
+                <img class="instructor-card__avatar" src="/assets/img/instructors/master_y.png" alt="Master Jenny Yu smiling in uniform">
                 <div class="instructor-card__identity-text">
                   <p class="kicker">Program Director / Head Instructor</p>
                   <h2 class="instructor-card__name">Master Jenny Yu</h2>
@@ -145,7 +140,7 @@
             <div class="instructor-card__body">
             <div class="instructor-card__bio">
               <div class="instructor-card__identity">
-                <img class="instructor-card__avatar" src="img/instructors/master_bw.png" alt="Master Bradford Woods smiling in uniform">
+                <img class="instructor-card__avatar" src="/assets/img/instructors/master_bw.png" alt="Master Bradford Woods smiling in uniform">
                 <div class="instructor-card__identity-text">
                   <p class="kicker">Program Director / Head Instructor</p>
                   <h2 class="instructor-card__name">Master Bradford Woods</h2>
@@ -185,7 +180,7 @@
             <div class="instructor-card__body">
             <div class="instructor-card__bio">
               <div class="instructor-card__identity">
-                <img class="instructor-card__avatar" src="img/instructors/Master_L.png" alt="Master Joseph Louis in uniform">
+                <img class="instructor-card__avatar" src="/assets/img/instructors/Master_L.png" alt="Master Joseph Louis in uniform">
                 <div class="instructor-card__identity-text">
                   <p class="kicker">Instructor</p>
                   <h2 class="instructor-card__name">Master Joseph Louis</h2>
@@ -228,78 +223,5 @@
         </section>
       </div>
     </section>
-  </main>
 
-  <div id="footer-placeholder"></div>
-
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    lucide.createIcons();
-  </script>
-
-  <script src="load-nav.js" defer></script>
-  <script src="load-footer.js" defer></script>
-  <script src="tenets-marquee.js" defer></script>
-  <script src="menu.js" defer></script>
-  <script>
-    window.addEventListener("DOMContentLoaded", function () {
-      const sections = Array.from(document.querySelectorAll(".loc-section"));
-      const pills = Array.from(document.querySelectorAll(".loc-track .pill"));
-      if (!sections.length || !pills.length) return;
-
-      const findPill = id => pills.find(p => p.getAttribute("href") === `#${id}`);
-
-      const setActive = pill => {
-        pills.forEach(p => {
-          p.classList.remove("active");
-          p.removeAttribute("aria-current");
-        });
-        if (pill) {
-          pill.classList.add("active");
-          pill.setAttribute("aria-current", "true");
-        }
-      };
-
-      const updateActive = () => {
-        const triggerLine = window.innerHeight * 0.35;
-        let current = sections[0];
-
-        for (const section of sections) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= triggerLine && rect.bottom >= triggerLine) {
-            current = section;
-            break;
-          }
-          if (rect.top > triggerLine) break;
-        }
-
-        const pill = findPill(current?.id);
-        if (pill) setActive(pill);
-      };
-
-      let ticking = false;
-      const handleScroll = () => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            updateActive();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      };
-
-      const observer = new IntersectionObserver(entries => {
-        if (entries.some(entry => entry.isIntersecting)) {
-          updateActive();
-        }
-      }, { rootMargin: "-35% 0px -55% 0px", threshold: [0, 0.2, 0.6] });
-
-      sections.forEach(section => observer.observe(section));
-      updateActive();
-      window.addEventListener("scroll", handleScroll, { passive: true });
-      window.addEventListener("resize", updateActive);
-      pills.forEach(pill => pill.addEventListener("click", () => pill.blur()));
-    });
-  </script>
-</body>
-</html>
+  

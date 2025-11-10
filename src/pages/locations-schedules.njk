@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Locations & Schedules � Lone Star Institute of Taekwondo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/reset_and_variables.css">
+---
+layout: layouts/page.njk
+title: Locations & Schedules
+description: Find Lone Star Institute class times across our North Texas campuses.
+permalink: /locations-schedules/
+eleventyNavigation:
+  key: Locations & Schedules
+  order: 4
+---
 
-  
-</head>
-<body>
-  <div id="nav-placeholder"></div>
-
-  <main>
     <!-- Page banner with black overlay and large title -->
     <section class="page-hero page-hero--locations" aria-label="Programs">
       <div class="page-hero__inner">
@@ -41,7 +34,7 @@
             <div class="location-card__content">
               <p class="kicker">PANTEGO | ARLINGTON | DFW</p>
               <div class="location-card__header">
-                <img class="location-card__avatar" src="img/location-imgs/lonestar.jpg" alt="Exterior of Lone Star Institute of Taekwondo in Pantego, Texas">
+                <img class="location-card__avatar" src="/assets/img/location-imgs/lonestar.jpg" alt="Exterior of Lone Star Institute of Taekwondo in Pantego, Texas">
                 <div>
                   <h2 class="location-card__title" id="lonestar-title">Lone Star Institute of Taekwondo</h2>
                 </div>
@@ -71,7 +64,7 @@
               </div>
 
               <p>
-                <a class="hero__button hero__button--tertiary" href="pdfs/Main%20Location%20Class%20Schedule%20(NEW).pdf" target="_blank" rel="noopener">
+                <a class="hero__button hero__button--tertiary" href="/assets/pdfs/Main%20Location%20Class%20Schedule%20(NEW).pdf" target="_blank" rel="noopener">
                   <i data-lucide="file-text" aria-hidden="true"></i>
                   View Schedule (PDF)
                 </a>
@@ -92,7 +85,7 @@
             <div class="location-card__content">
               <p class="kicker">ARLINGTON</p>
               <div class="location-card__header">
-                <img class="location-card__avatar" src="img/location-imgs/cliffnelson.jpg" alt="Cliff Nelson Recreation Center exterior">
+                <img class="location-card__avatar" src="/assets/img/location-imgs/cliffnelson.jpg" alt="Cliff Nelson Recreation Center exterior">
                 <div>
                   <h2 class="location-card__title" id="cliff-title">Cliff Nelson Recreation Center</h2>
                 </div>
@@ -146,7 +139,7 @@
             <div class="location-card__content">
               <p class="kicker">ARLINGTON</p>
               <div class="location-card__header">
-                <img class="location-card__avatar" src="img/location-imgs/dottielynn.jpg" alt="Dottie Lynn Recreation Center exterior">
+                <img class="location-card__avatar" src="/assets/img/location-imgs/dottielynn.jpg" alt="Dottie Lynn Recreation Center exterior">
                 <div>
                   <h2 class="location-card__title" id="dottie-title">Dottie Lynn Recreation Center</h2>
                 </div>
@@ -193,7 +186,7 @@
             <div class="location-card__content">
               <p class="kicker">ARLINGTON</p>
               <div class="location-card__header">
-                <img class="location-card__avatar" src="img/location-imgs/elziodom.jpg" alt="Elzie Odom Recreation Center exterior">
+                <img class="location-card__avatar" src="/assets/img/location-imgs/elziodom.jpg" alt="Elzie Odom Recreation Center exterior">
                 <div>
                   <h2 class="location-card__title" id="elzie-title">Elzie Odom Recreation Center</h2>
                 </div>
@@ -241,7 +234,7 @@
             <div class="location-card__content">
               <p class="kicker">ARLINGTON</p>
               <div class="location-card__header">
-                <img class="location-card__avatar" src="img/location-imgs/montessori.jpg" alt="The Montessori Academy main entrance">
+                <img class="location-card__avatar" src="/assets/img/location-imgs/montessori.jpg" alt="The Montessori Academy main entrance">
                 <div>
                   <h2 class="location-card__title" id="montessori-title">The Montessori Academy</h2>
                 </div>
@@ -287,71 +280,5 @@
 
   
 
-  <div id="footer-placeholder"></div>
+  
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
-    </script>
-
-
-  <script src="load-nav.js" defer></script>
-  <script src="load-footer.js" defer></script>
-  <script src="tenets-marquee.js" defer></script>
-  <script src="menu.js" defer></script>
-  <script>
-    window.addEventListener("DOMContentLoaded", function () {
-      const sections = Array.from(document.querySelectorAll(".loc-section"));
-      const pills = Array.from(document.querySelectorAll(".loc-track .pill"));
-      if (!sections.length || !pills.length) return;
-
-      const findPill = id => pills.find(p => p.getAttribute("href") === `#${id}`);
-
-      const setActive = pill => {
-        pills.forEach(p => {
-          p.classList.remove("active");
-          p.removeAttribute("aria-current");
-        });
-        if (pill) {
-          pill.classList.add("active");
-          pill.setAttribute("aria-current", "true");
-        }
-      };
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const pill = findPill(entry.target.id);
-          if (pill) setActive(pill);
-        });
-      }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.1 });
-
-      sections.forEach(section => observer.observe(section));
-      pills.forEach(pill => pill.addEventListener("click", () => pill.blur()));
-    });
-  </script>
-  <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      const directionLinks = Array.from(document.querySelectorAll('.contact-item__directions'));
-      if (!directionLinks.length) return;
-
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
-      const isIOS = /iPad|iPhone|iPod/.test(ua);
-      const isAndroid = /Android/.test(ua);
-
-      directionLinks.forEach(link => {
-        const address = link.dataset.address;
-        if (!address) return;
-
-        if (isIOS) {
-          link.href = `https://maps.apple.com/?daddr=${address}`;
-        } else if (isAndroid) {
-          link.href = `https://maps.google.com/maps?daddr=${address}`;
-        } else {
-          link.href = `https://www.google.com/maps/dir/?api=1&destination=${address}`;
-        }
-      });
-    });
-  </script>
-</body>
-</html>

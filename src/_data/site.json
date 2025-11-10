@@ -1,0 +1,21 @@
+{
+  "title": "Lone Star Institute of Taekwondo",
+  "shortTitle": "LSIT",
+  "description": "Traditional Taekwondo training for all ages in North Texas.",
+  "url": "https://lsittkd.com",
+  "author": "Rocinante Marketing",
+  "language": "en",
+  "email": "info@lsittkd.com",
+  "phone": "(682) 554-8531",
+  "phoneHref": "tel:+16825548531",
+  "address": {
+    "street": "1541 S. Bowen Road",
+    "city": "Pantego",
+    "state": "TX",
+    "postal": "76013"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/",
+    "instagram": "https://www.instagram.com/"
+  }
+}
