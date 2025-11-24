@@ -4,6 +4,23 @@
     const wrap = video?.closest('.video-wrap');
     if (!video || !wrap) return;
 
+    const desktopQuery = window.matchMedia('(min-width: 768px)');
+    const source = video.querySelector('source');
+
+    const loadSource = () => {
+      if (source?.dataset.src) {
+        source.src = source.dataset.src;
+      }
+      video.load();
+    };
+
+    const unloadSource = () => {
+      if (source) {
+        source.removeAttribute('src');
+      }
+      video.load();
+    };
+
     const markPlaying = (isPlaying) => {
       if (isPlaying) {
         wrap.classList.add('is-playing');
@@ -21,6 +38,12 @@
     };
 
     const tryPlay = () => {
+      if (!desktopQuery.matches) {
+        unloadSource();
+        markPlaying(false);
+        return;
+      }
+      loadSource();
       ensureInline();
       const playPromise = video.play();
       if (playPromise && typeof playPromise.then === 'function') {
@@ -54,6 +77,12 @@
         markPlaying(false);
       }
     });
+
+    if (typeof desktopQuery.addEventListener === 'function') {
+      desktopQuery.addEventListener('change', tryPlay);
+    } else if (typeof desktopQuery.addListener === 'function') {
+      desktopQuery.addListener(tryPlay);
+    }
   };
 
   if (document.readyState === 'loading') {

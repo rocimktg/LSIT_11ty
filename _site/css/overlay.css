@@ -58,6 +58,20 @@
     opacity: 0;
 }
 
+.hero__video {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .hero__video {
+        display: none;
+    }
+
+    .hero__fallback {
+        opacity: 1 !important;
+    }
+}
+
 .overlay--gradient {
     position: absolute;
     inset: 0;
