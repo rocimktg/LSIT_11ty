@@ -12,9 +12,15 @@ async function imageShortcode(src, alt, sizes = "100vw", attrs = {}) {
   // Make the image path root-relative
   const fullSrc = path.join("./", src);
 
+  const widths = attrs.widths || [320, 640, 960, 1200, 1800];
+  const formats = attrs.formats || ["avif", "webp", "jpeg"];
+  const cleanAttrs = { ...attrs };
+  delete cleanAttrs.widths;
+  delete cleanAttrs.formats;
+
   let metadata = await Image(fullSrc, {
-    widths: [320, 640, 960, 1200, 1800],
-    formats: ["avif", "webp", "jpeg"],
+    widths,
+    formats,
     urlPath: "/img/",        // How it appears in the final site
     outputDir: "./img"       // Write alongside source so both dev root and _site can serve
   });
@@ -24,7 +30,7 @@ async function imageShortcode(src, alt, sizes = "100vw", attrs = {}) {
     sizes,
     loading: attrs.loading || "lazy",
     decoding: "async",
-    ...attrs
+    ...cleanAttrs
   };
 
   return Image.generateHTML(metadata, imageAttributes);

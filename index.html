@@ -23,7 +23,7 @@ templateEngineOverride: njk
                 <video class="hero__video" autoplay muted loop playsinline webkit-playsinline preload="none" poster="img/fallback.jpg" aria-hidden="true">
                     <source data-src="video/LSIT_BW.mp4" type="video/mp4" media="(min-width: 768px)">
                 </video>
-                {% image "img/fallback.jpg", "", "100vw", { class: "hero__fallback", "aria-hidden": "true" } %}
+                {% image "img/fallback.jpg", "", "(min-width: 1200px) 1200px, 100vw", { class: "hero__fallback", "aria-hidden": "true", widths: [640, 960, 1280] } %}
 
                 <div class="overlay--gradient is-pulsing" aria-hidden="true"></div>
                 <div class="overlay--grain" aria-hidden="true"></div>
