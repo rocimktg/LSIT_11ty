@@ -3,8 +3,9 @@ const Image = require("@11ty/eleventy-img");
 const path = require("path");
 
 // ---- IMAGE SHORTCODE ----
-async function imageShortcode(src, alt, sizes = "100vw") {
-  if (!alt) {
+async function imageShortcode(src, alt, sizes = "100vw", attrs = {}) {
+  // Allow empty-string alt for decorative images, but not undefined/null
+  if (alt === undefined || alt === null) {
     throw new Error(`Missing \`alt\` text for image: ${src}`);
   }
 
@@ -12,7 +13,7 @@ async function imageShortcode(src, alt, sizes = "100vw") {
   const fullSrc = path.join("./", src);
 
   let metadata = await Image(fullSrc, {
-    widths: [320, 640, 960, 1200],
+    widths: [320, 640, 960, 1200, 1800],
     formats: ["avif", "webp", "jpeg"],
     urlPath: "/img/",        // How it appears in the final site
     outputDir: "./_site/img/" // Where optimized images are written
@@ -21,8 +22,9 @@ async function imageShortcode(src, alt, sizes = "100vw") {
   let imageAttributes = {
     alt,
     sizes,
-    loading: "lazy",
-    decoding: "async"
+    loading: attrs.loading || "lazy",
+    decoding: "async",
+    ...attrs
   };
 
   return Image.generateHTML(metadata, imageAttributes);

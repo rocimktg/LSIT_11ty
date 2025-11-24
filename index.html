@@ -23,7 +23,7 @@ templateEngineOverride: njk
                 <video class="hero__video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="img/hero-poster.jpg" aria-hidden="true">
                     <source src="video/LSIT_BW.mp4" type="video/mp4">
                 </video>
-                <img class="hero__fallback" src="img/fallback.jpg" alt="" aria-hidden="true">
+                {% image "img/fallback.jpg", "", "100vw", { class: "hero__fallback", "aria-hidden": "true" } %}
 
                 <div class="overlay--gradient is-pulsing" aria-hidden="true"></div>
                 <div class="overlay--grain" aria-hidden="true"></div>
@@ -147,7 +147,7 @@ templateEngineOverride: njk
                 <div class="age-groups__grid">
                     <article class="program-card">
                         <a class="program-card__image-link" href="programs.html#youth">
-                            <img class="program-card__image" src="img/ninja.jpg" alt="Little Ninjas">
+                            {% image "img/ninja.jpg", "Little Ninjas", "(min-width: 1024px) 1200px, 100vw", { class: "program-card__image" } %}
                         </a>
                         <span class="program-card__badge">Ages 3-5</span>
                         <h3 class="program-card__title">Little Ninjas</h3>
@@ -163,7 +163,7 @@ templateEngineOverride: njk
 
                     <article class="program-card">
                         <a class="program-card__image-link" href="programs.html#youth">
-                            <img class="program-card__image program-card__image--youth" src="img/youth.jpg" alt="Youth Martial Arts">
+                            {% image "img/youth.jpg", "Youth Martial Arts", "(min-width: 1024px) 1200px, 100vw", { class: "program-card__image program-card__image--youth" } %}
                         </a>
                         <span class="program-card__badge">Ages 6-17</span>
                         <h3 class="program-card__title">Youth Martial Arts</h3>
@@ -181,7 +181,7 @@ templateEngineOverride: njk
 
                     <article class="program-card">
                         <a class="program-card__image-link" href="programs.html#adult">
-                            <img class="program-card__image program-card__image--adult" src="img/adult.jpg" alt="Adult Classes">
+                            {% image "img/adult.jpg", "Adult Classes", "(min-width: 1024px) 1200px, 100vw", { class: "program-card__image program-card__image--adult" } %}
                         </a>
                         <span class="program-card__badge">Ages 18+</span>
                         <h3 class="program-card__title">Adult Classes</h3>
