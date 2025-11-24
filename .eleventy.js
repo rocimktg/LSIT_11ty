@@ -16,7 +16,7 @@ async function imageShortcode(src, alt, sizes = "100vw", attrs = {}) {
     widths: [320, 640, 960, 1200, 1800],
     formats: ["avif", "webp", "jpeg"],
     urlPath: "/img/",        // How it appears in the final site
-    outputDir: "./_site/img/" // Where optimized images are written
+    outputDir: "./img"       // Write alongside source so both dev root and _site can serve
   });
 
   let imageAttributes = {
