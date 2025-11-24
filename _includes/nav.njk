@@ -1,0 +1,61 @@
+{% set navData = nav or {} %}
+{% set logo = navData.logo or {} %}
+{% set phone = navData.phone or {} %}
+{% set links = navData.links or [] %}
+{% set cta = navData.cta or {} %}
+
+<!-- Desktop Navigation -->
+<nav class="main-nav">
+  <div class="nav-container">
+    <a href="{{ logo.homeUrl or 'index.html' }}" class="logo-box" aria-label="Lonestar Institute of Taekwando home">
+      <img src="{{ logo.src or 'img/lsit_logo.svg' }}" class="logo-image" alt="{{ logo.alt or 'Lonestar Institute of Taekwando' }}">
+    </a>
+
+    <div class="nav-content">
+      <div class="nav-top-row">
+        <div class="brand-tagline">{{ navData.brandTagline or 'Lone Star Institute of Taekwando' }}</div>
+        <div class="utility-links">
+          {% if phone.href %}
+          <a href="{{ phone.href }}" class="utility-item phone">
+            <span class="icon" aria-hidden="true"><i data-lucide="phone"></i></span>
+            <span>{{ phone.display or phone.href }}</span>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="nav-bottom-row">
+        <div class="nav-menu">
+          {% for item in links %}
+          <a href="{{ item.href }}">{{ item.label }}</a>
+          {% endfor %}
+        </div>
+
+        {% if cta.href %}
+        <a href="{{ cta.href }}" class="cta-button cta-button--nav">{{ cta.label or 'Get Started' }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<nav class="mobile-nav">
+  <a href="{{ logo.homeUrl or 'index.html' }}" class="logo-image logo-image--mobile" aria-label="Lonestar Institute of Taekwando home">
+    <img src="{{ logo.src or 'img/lsit_logo.svg' }}" alt="{{ logo.alt or 'Lonestar Institute of Taekwando' }}">
+  </a>
+  <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+  <ul class="mobile-menu__list">
+    {% for item in links %}
+    <li><a href="{{ item.href }}">{{ item.label }}</a></li>
+    {% endfor %}
+    {% if cta.href %}
+    <li class="mobile-menu__cta"><a href="{{ cta.href }}" class="cta-button cta-button--nav">{{ cta.label or 'Get Started' }}</a></li>
+    {% endif %}
+  </ul>
+</nav>
+

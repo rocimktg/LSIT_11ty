@@ -1,3 +1,7 @@
+---
+permalink: locations-schedules.html
+templateEngineOverride: njk
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +16,7 @@
   
 </head>
 <body>
-  <div id="nav-placeholder"></div>
+  {% include "nav.njk" %}
 
   <main>
     <!-- Page banner with black overlay and large title -->
@@ -287,7 +291,7 @@
 
   
 
-  <div id="footer-placeholder"></div>
+  {% include "footer.njk" %}
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
@@ -295,8 +299,6 @@
     </script>
 
 
-  <script src="load-nav.js" defer></script>
-  <script src="load-footer.js" defer></script>
   <script src="tenets-marquee.js" defer></script>
   <script src="menu.js" defer></script>
   <script>

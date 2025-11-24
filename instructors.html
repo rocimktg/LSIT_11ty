@@ -1,3 +1,7 @@
+---
+permalink: instructors.html
+templateEngineOverride: njk
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,7 @@
   <link rel="stylesheet" href="css/reset_and_variables.css">
 </head>
 <body>
-  <div id="nav-placeholder"></div>
+  {% include "nav.njk" %}
 
   <main>
     <section class="page-hero page-hero--instructors" aria-label="Instructors">
@@ -230,15 +234,13 @@
     </section>
   </main>
 
-  <div id="footer-placeholder"></div>
+  {% include "footer.njk" %}
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
   </script>
 
-  <script src="load-nav.js" defer></script>
-  <script src="load-footer.js" defer></script>
   <script src="tenets-marquee.js" defer></script>
   <script src="menu.js" defer></script>
   <script>

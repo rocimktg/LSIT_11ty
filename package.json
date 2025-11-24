@@ -1,0 +1,29 @@
+{
+  "name": "lsit_11ty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "load-footer.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "eleventy --serve --port=8080",
+    "build": "eleventy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocimktg/LSIT_11ty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rocimktg/LSIT_11ty/issues"
+  },
+  "homepage": "https://github.com/rocimktg/LSIT_11ty#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-img": "^6.0.4"
+  }
+}

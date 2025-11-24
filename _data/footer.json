@@ -1,0 +1,104 @@
+﻿{
+  "cta": {
+    "eyebrow": "Ready to get started?",
+    "primary": { "label": "Claim a free week of classes", "href": "index.html#free-week" },
+    "secondary": { "label": "Contact us", "href": "contact.html" }
+  },
+  "tenets": [
+    {
+      "title": "Courtesy",
+      "hangul": "\uC608\uC758",
+      "romanization": "Ye-wee",
+      "description": "Courtesy (\uC608\uC758, ye-wee) reminds us to show respect in the dojang and beyond through sincere etiquette and kindness."
+    },
+    {
+      "title": "Integrity",
+      "hangul": "\uC5FC\uCE58",
+      "romanization": "Yom-chee",
+      "description": "Integrity (\uC5FC\uCE58, yom-chee) calls for honesty, strong morals, and the courage to do what is right even when it is difficult."
+    },
+    {
+      "title": "Perseverance",
+      "hangul": "\uC778\uB0B4",
+      "romanization": "Een-nay",
+      "description": "Perseverance (\uC778\uB0B4, een-nay) is the willingness to keep pushing toward every goal despite obstacles in training or life."
+    },
+    {
+      "title": "Self Control",
+      "hangul": "\uADF9\uAE30",
+      "romanization": "Gook-gee",
+      "description": "Self control (\uADF9\uAE30, gook-gee) keeps thoughts, emotions, and actions in balance so we can respond with a steady mind and body."
+    },
+    {
+      "title": "Indomitable Spirit",
+      "hangul": "\uBC31\uC808\uBD88\uAD74",
+      "romanization": "Baekjool Boolgool",
+      "description": "Indomitable spirit (\uBC31\uC808\uBD88\uAD74, baekjool boolgool) is to be defeated a hundred times yet never bent — the heart of true strength."
+    }
+  ],
+  "brand": {
+    "logoSrc": "img/lsit_logo.svg",
+    "logoAlt": "Lonestar Institute of Taekwando logo",
+    "homeUrl": "index.html",
+    "logoText": "LONE STAR\nINSTITUTE OF\nTAEKWANDO",
+    "tagline": "Building confident leaders through disciplined martial arts training for every age and stage."
+  },
+  "contact": {
+    "address": {
+      "href": "https://maps.google.com/?q=1541+S.+Bowen+Road+Pantego+TX+76013",
+      "text": "1541 S. Bowen Road\\nPantego, TX 76013"
+    },
+    "phone": { "href": "tel:+16825548531", "text": "(682) 554-8531" },
+    "email": { "href": "mailto:info@LSITKD.com", "text": "info@LSITKD.com" }
+  },
+  "quickLinks": [
+    { "label": "Home", "href": "index.html" },
+    { "label": "Programs", "href": "programs.html" },
+    { "label": "Locations & Schedules", "href": "locations-schedules.html" },
+    { "label": "Instructors", "href": "instructors.html" },
+    { "label": "Contact", "href": "contact.html" }
+  ],
+  "programLinks": [
+    { "label": "Youth Programs", "href": "programs.html#youth" },
+    { "label": "Adult Programs", "href": "programs.html#adult" },
+    { "label": "Advanced Programs", "href": "programs.html#advanced" }
+  ],
+  "video": {
+    "heading": "How to Tie Your Belt",
+    "description": "Watch our quick tutorial so you're ready before stepping on the mat.",
+    "embed": "https://www.youtube.com/embed/ZHXuFQp9OQs?start=1",
+    "link": "https://www.youtube.com/watch?v=ZHXuFQp9OQs&t=1s"
+  },
+  "trust": {
+    "label": "Proud members of:",
+    "items": [
+      {
+        "img": "img/watermarks/eagle_icon.png",
+        "alt": "Texas Karate League logo",
+        "label": "Texas Karate League",
+        "href": "https://texaskarateleague.com/"
+      },
+      {
+        "img": "img/watermarks/texas_icon.png",
+        "alt": "Texas State Taekwondo Association logo",
+        "label": "Texas State Taekwondo Association",
+        "href": "https://www.txtkd.org/"
+      },
+      {
+        "img": "img/watermarks/usa_icon.png",
+        "alt": "USA Taekwondo logo",
+        "label": "USA Taekwondo",
+        "href": "https://www.usatkd.org/"
+      }
+    ]
+  },
+  "legal": {
+    "links": [
+      { "label": "Privacy Policy", "href": "#privacy" },
+      { "label": "Terms of Service", "href": "#terms" },
+      { "label": "Accessibility", "href": "#accessibility" }
+    ],
+    "copyright": "© 2025 Lone Star Institute of Taekwando. All rights reserved.",
+    "credit": { "label": "Rocinante Marketing", "href": "https://rocinantemarketing.com" }
+  }
+}

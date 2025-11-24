@@ -1,0 +1,42 @@
+<h1>Emerald Shadow Overlay Module</h1>
+<p><strong>Brief</strong>: Implements the &quot;Emerald Shadow&quot; cinematic system for hero/background videos (LSIT / Rocinante Marketing v1.0). Pairs deep teal gradients with grain, vignette, and glass CTA container for AA+ legibility.</p>
+<h2>Layer Stack &amp; Tokens</h2>
+<ul>
+<li><strong>Video base</strong> .video-wrap video overlays autoplay hero footage (lsit-hero.(webm|mp4)) with poster fallback img/hero-poster.jpg (&lt;20KB).</li>
+<li><strong>Gradient wash</strong> .overlay--gradient (z=1) mixes
+gba(4,112,98,.85) →
+gba(0,0,0,.9) at 45° for Emerald → Shadow drift.</li>
+<li><strong>Animated grain</strong> .overlay--grain (z=2) tiles 	extures/noise.png (192×192, 24KB) with ilmGrain keyframes; disabled under prefers-reduced-motion.</li>
+<li><strong>Vignette</strong> .overlay--vignette (z=3) radial focus from center, pointer-events none.</li>
+<li><strong>Glass CTA</strong> .text-glass (z=10) uses ackdrop-filter: blur(8px) with fallback to
+gba(0,0,0,.65) via @supports guard.</li>
+</ul>
+<p>Key tokens live in :root (see css/reset_and_variables.css): --overlay-heading, --overlay-panel-gloss, etc.</p>
+<h2>Usage</h2>
+<ol>
+<li>Link css/overlay.css after css/styles.css.</li>
+<li>Wrap hero media with <section class="hero hero--emerald"> → <div class="video-wrap">.</li>
+<li>Keep overlays ordered: gradient → grain → vignette → .text-glass.hero__content.</li>
+<li>Primary CTA uses .hero__button.hero__button--primary (teal) and .hero__button--secondary (outlined) scoped via .hero--emerald.</li>
+<li>Optional teal pulse: add .is-pulsing to .overlay--gradient (default on home hero).</li>
+<li>Reduced-motion users automatically skip grain animation; add data-paused=&quot;true&quot; to <video> if JS stops autoplay.</li>
+</ol>
+<h2>Fallback Guidance</h2>
+<ul>
+<li>No ackdrop-filter: @supports not (...) bumps panel background to
+gba(0,0,0,.65).</li>
+<li>No mix-blend-mode: gradient opacity increases to maintain contrast.</li>
+<li>prefers-reduced-motion: film grain + pulse animations disabled; video transitions halted via CSS + optional JS hook.</li>
+</ul>
+<h2>Assets &amp; Performance Notes</h2>
+<ul>
+<li>ideo/lsit-hero.webm (VP9, 4.1 MB, 1080p@29.97).</li>
+<li>ideo/lsit-hero.mp4 (H.264 fallback, 6.0 MB copy of 	kd.mp4).</li>
+<li>img/hero-poster.jpg (1280×720 gradient, 18 KB) for quick LCP.</li>
+<li>extures/noise.png (tileable 192×192, 24 KB) under 40 KB budget.</li>
+</ul>
+<h2>Integration TODOs</h2>
+<ul>
+<li>When the hero component doc is published, link back to this brief.</li>
+<li>Future: wire analytics event for CTA clicks to measure +15% KPI.</li>
+</ul>

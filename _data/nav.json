@@ -1,0 +1,23 @@
+﻿{
+  "logo": {
+    "src": "img/lsit_logo.svg",
+    "alt": "Lonestar Institute of Taekwando",
+    "homeUrl": "index.html"
+  },
+  "brandTagline": "Lone Star Institute of Taekwando",
+  "phone": {
+    "display": "(682) 554-8531",
+    "href": "tel:+16825548531"
+  },
+  "links": [
+    { "label": "HOME", "href": "index.html" },
+    { "label": "PROGRAMS", "href": "programs.html" },
+    { "label": "LOCATIONS & SCHEDULES", "href": "locations-schedules.html" },
+    { "label": "INSTRUCTORS", "href": "instructors.html" },
+    { "label": "CONTACT", "href": "contact.html" }
+  ],
+  "cta": {
+    "label": "Claim Free Week",
+    "href": "index.html#free-week"
+  }
+}

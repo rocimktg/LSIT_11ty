@@ -1,0 +1,61 @@
+<h1>Emerald Shadow Performance Snapshot</h1>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Size</th>
+<th>Budget</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ideo/lsit-hero.webm (VP9)</td>
+<td>4.1 MB</td>
+<td>≤ 6 MB</td>
+<td>Encoded @ ~3 Mbps, 14 s loop, no audio.</td>
+</tr>
+<tr>
+<td>ideo/lsit-hero.mp4 (H.264)</td>
+<td>6.0 MB</td>
+<td>≤ 6 MB</td>
+<td>Copies existing 	kd.mp4 for fallback.</td>
+</tr>
+<tr>
+<td>img/hero-poster.jpg</td>
+<td>18 KB</td>
+<td>≤ 150 KB</td>
+<td>Gradient poster used as LCP placeholder.</td>
+</tr>
+<tr>
+<td>extures/noise.png</td>
+<td>24 KB</td>
+<td>≤ 40 KB</td>
+<td>Tileable 192×192 grain.</td>
+</tr>
+<tr>
+<td>Overlay CSS (css/overlay.css)</td>
+<td>3 KB</td>
+<td>—</td>
+<td>Loaded after css/styles.css.</td>
+</tr>
+</tbody>
+</table>
+<p>Total overlay asset payload (noise + poster + CSS) = <strong>45 KB</strong>, well under the 100 KB overlay budget.</p>
+<h2>Timing Targets</h2>
+<ul>
+<li>Hero remains above-the-fold; ensure the poster eventually receives a <link rel="preload" as="image"> once HTML head control is available to keep LCP ≤ 2.5 s on 4G.</li>
+<li>CLS unchanged (hero height fixed, content anchored inside .text-glass).</li>
+</ul>
+<h2>Test Status</h2>
+<ul>
+<li><strong>Lighthouse</strong>: Not run in CLI (Chrome headless unavailable). Run
+px lighthouse http://localhost:4173 --only-categories=performance,accessibility --preset=desktop after hosting to capture ≥90/95 targets.</li>
+<li><strong>WebPageTest</strong>: Pending (external service). Suggested script: https://www.webpagetest.org/?url=https://<deploy>/&amp;fvonly=1&amp;video=1.</li>
+<li><strong>Poster lazy-load</strong>: Verified via manual inspection—poster + preload=&quot;metadata&quot; keep initial request lean.</li>
+</ul>
+<h2>Follow-Up</h2>
+<ol>
+<li>Inline link rel=&quot;preload&quot; as=&quot;video&quot; + etchpriority=&quot;high&quot; for the hero once traffic confirms uplift.</li>
+<li>Monitor analytics for CTA click-through lift (+15% KPI) once deployed.</li>
+</ol>

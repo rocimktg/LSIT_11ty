@@ -1,0 +1,164 @@
+{% set data = footer or {} %}
+{% set tenets = data.tenets or [] %}
+{% set brand = data.brand or {} %}
+{% set contact = data.contact or {} %}
+{% set quickLinks = data.quickLinks or [] %}
+{% set programLinks = data.programLinks or [] %}
+{% set video = data.video or {} %}
+{% set trust = data.trust or {} %}
+{% set legal = data.legal or {} %}
+
+<section class="tenets-cta" aria-label="Ready to begin">
+  <div class="tenets-cta__inner">
+    <p class="tenets-cta__eyebrow">{{ data.cta.eyebrow }}</p>
+    <div class="tenets-cta__actions">
+      {% if data.cta.primary %}
+      <a class="tenets-cta__link tenets-cta__link--primary" href="{{ data.cta.primary.href }}">{{ data.cta.primary.label }}</a>
+      {% endif %}
+      <span aria-hidden="true" class="tenets-cta__divider">|</span>
+      {% if data.cta.secondary %}
+      <a class="tenets-cta__link tenets-cta__link--secondary" href="{{ data.cta.secondary.href }}">{{ data.cta.secondary.label }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="tenets-marquee" aria-labelledby="tenets-heading">
+  <h2 id="tenets-heading" class="visually-hidden">The Five Tenets of Taekwondo</h2>
+
+  <div class="tenets-marquee__viewport tenets-marquee__viewport--desktop" aria-hidden="false">
+    <div class="tenets-marquee__track">
+      {% for tenet in tenets %}
+      <article class="tenet" role="group" aria-label="{{ tenet.title }}">
+        <div class="tenet__inner tenet--{{ tenet.title | lower | replace(' ', '') }}">
+          <div class="tenet__hangul" lang="ko">{{ tenet.hangul }}</div>
+          <h3 class="tenet__title">{{ tenet.title }}</h3>
+          <div class="tenet__romanization">{{ tenet.romanization }}</div>
+          <p class="tenet__desc">{{ tenet.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
+      {% for tenet in tenets %}
+      <article class="tenet" role="group" aria-label="{{ tenet.title }}" aria-hidden="true">
+        <div class="tenet__inner tenet--{{ tenet.title | lower | replace(' ', '') }}">
+          <div class="tenet__hangul" lang="ko">{{ tenet.hangul }}</div>
+          <h3 class="tenet__title">{{ tenet.title }}</h3>
+          <div class="tenet__romanization">{{ tenet.romanization }}</div>
+          <p class="tenet__desc">{{ tenet.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="tenets-carousel" aria-label="Swipe through the five tenets">
+    <div class="tenets-carousel__viewport">
+      {% for tenet in tenets %}
+      <article class="tenet" role="group" aria-label="{{ tenet.title }}">
+        <div class="tenet__inner tenet--{{ tenet.title | lower | replace(' ', '') }}">
+          <div class="tenet__hangul" lang="ko">{{ tenet.hangul }}</div>
+          <h3 class="tenet__title">{{ tenet.title }}</h3>
+          <div class="tenet__romanization">{{ tenet.romanization }}</div>
+          <p class="tenet__desc">{{ tenet.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="tenets-carousel__dots" role="tablist" aria-label="Select a tenet"></div>
+  </div>
+</section>
+
+<footer class="site-footer" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="visually-hidden">Lonestar Institute of Taekwando Footer</h2>
+  <div class="site-footer__main">
+    <div class="site-footer__column site-footer__column--brand">
+      <a href="{{ brand.homeUrl }}" class="site-footer__logo" aria-label="Lonestar Institute of Taekwando home">
+        <img src="{{ brand.logoSrc }}" alt="{{ brand.logoAlt }}">
+        <span class="logo-text">{{ brand.logoText | replace('\n', '<br>') | safe }}</span>
+      </a>
+      <p class="site-footer__tagline">{{ brand.tagline }}</p>
+      <address class="site-footer__contact" aria-label="Contact information">
+        {% if contact.address %}
+        <a href="{{ contact.address.href }}" class="site-footer__contact-link">
+          <i data-lucide="map-pin" aria-hidden="true"></i>
+          {{ contact.address.text | replace('\n', '<br /> ') | safe }}
+        </a>
+        {% endif %}
+        {% if contact.phone %}
+        <a href="{{ contact.phone.href }}" class="site-footer__contact-link">
+          <i data-lucide="phone" aria-hidden="true"></i>
+          {{ contact.phone.text }}
+        </a>
+        {% endif %}
+        {% if contact.email %}
+        <a href="{{ contact.email.href }}" class="site-footer__contact-link">
+          <i data-lucide="mail" aria-hidden="true"></i>
+          {{ contact.email.text }}
+        </a>
+        {% endif %}
+      </address>
+    </div>
+
+    <nav class="site-footer__column" aria-labelledby="footer-quick-links-heading">
+      <h3 id="footer-quick-links-heading" class="site-footer__heading">Quick Links</h3>
+      <ul class="site-footer__list">
+        {% for link in quickLinks %}
+        <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <nav class="site-footer__column" aria-labelledby="footer-programs-heading">
+      <h3 id="footer-programs-heading" class="site-footer__heading">Our Programs</h3>
+      <ul class="site-footer__list">
+        {% for link in programLinks %}
+        <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="site-footer__column site-footer__column--media" aria-labelledby="footer-video-heading">
+      <h3 id="footer-video-heading" class="site-footer__heading">{{ video.heading }}</h3>
+      <p class="site-footer__newsletter-text">{{ video.description }}</p>
+      <div class="site-footer__video" role="group" aria-label="Instructional video: How to Tie Your Belt">
+        <iframe
+          src="{{ video.embed }}"
+          title="How to Tie Your Belt"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <a class="site-footer__video-link" href="{{ video.link }}" target="_blank" rel="noopener noreferrer">
+        watch on youtube
+      </a>
+    </div>
+  </div>
+
+  <section class="site-footer__trust" aria-label="Trust indicators">
+    <div class="site-footer__trust-item site-footer__trust-item--label">{{ trust.label }}</div>
+    {% for item in trust.items %}
+    <div class="site-footer__trust-item">
+      <img class="site-footer__trust-icon" src="{{ item.img }}" alt="{{ item.alt }}" loading="lazy" />
+      <a href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
+    </div>
+    {% endfor %}
+  </section>
+
+  <div class="site-footer__bottom">
+    <p class="site-footer__copyright">{{ legal.copyright }}</p>
+    <div class="site-footer__legal">
+      {% for link in legal.links %}
+        {% if not loop.first %}<span aria-hidden="true">|</span>{% endif %}
+        <a href="{{ link.href }}">{{ link.label }}</a>
+      {% endfor %}
+    </div>
+    <p class="site-footer__credit">Website by <a href="{{ legal.credit.href }}">{{ legal.credit.label }}</a></p>
+  </div>
+</footer>
+
+<button class="back-to-top" type="button" aria-label="Back to top">
+  <i data-lucide="chevron-up" aria-hidden="true"></i>
+</button>
+
