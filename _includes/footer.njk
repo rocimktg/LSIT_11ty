@@ -140,7 +140,7 @@
     <div class="site-footer__trust-item site-footer__trust-item--label">{{ trust.label }}</div>
     {% for item in trust.items %}
     <div class="site-footer__trust-item">
-      <img class="site-footer__trust-icon" src="{{ item.img }}" alt="{{ item.alt }}" loading="lazy" />
+      {% image item.img, item.alt, "80px", { widths: [80, 120, 160], class: "site-footer__trust-icon", loading: "lazy" } %}
       <a href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
     </div>
     {% endfor %}

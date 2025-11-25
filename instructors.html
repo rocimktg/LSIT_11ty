@@ -1,4 +1,4 @@
----
+﻿---
 permalink: instructors.html
 templateEngineOverride: njk
 ---
@@ -7,7 +7,7 @@ templateEngineOverride: njk
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instructors — Lone Star Institute of Taekwondo</title>
+  <title>Instructors â€” Lone Star Institute of Taekwondo</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/nav.css">
@@ -35,7 +35,7 @@ templateEngineOverride: njk
     <section class="instructor-scroll-banner" aria-label="Lonestar instructor credentials">
       <div class="instructor-scroll-banner__inner">
         <div class="instructor-scroll-banner__content">
-          <img class="instructor-scroll-banner__icon" src="img/watermarks/black_belt_icon.png" alt="Black belt illustration">
+          {% image "img/watermarks/black_belt_icon.png", "Black belt illustration", "120px", { widths: [120, 200, 320], class: "instructor-scroll-banner__icon" } %}
           <p>
             Lone Star Institute of Taekwondo's certified black belt instructors (1st-7th degree) are recognized by the United States Taekwondo Grand Masters Society, with many also part of USA Taekwondo. With over 100 years of combined experience, they share their passion and uphold Taekwondo's tenets through dedicated instruction.
           </p>
@@ -50,7 +50,7 @@ templateEngineOverride: njk
             <div class="instructor-card__body">
             <div class="instructor-card__bio">
               <div class="instructor-card__identity">
-                <img class="instructor-card__avatar" src="img/instructors/master_k.png" alt="Master David Kestenbaum smiling in uniform">
+                {% image "img/instructors/master_k.png", "Master David Kestenbaum smiling in uniform", "160px", { widths: [200, 320, 480], class: "instructor-card__avatar" } %}
                 <div class="instructor-card__identity-text">
                   <p class="kicker">Owner / Head Instructor</p>
                   <h2 class="instructor-card__name">Master David Kestenbaum</h2>
@@ -86,10 +86,10 @@ templateEngineOverride: njk
 
             <div class="instructor-card__gallery">
               <figure class="instructor-card__media">
-                <img src="img/instructors/master_k_action1.jpg" alt="Master David Kestenbaum executing a flying side kick during a demonstration">
+                {% image "img/instructors/master_k_action1.jpg", "Master David Kestenbaum executing a flying side kick during a demonstration", "(min-width: 900px) 40vw, 100vw", { widths: [640, 960, 1280], class: "instructor-card__photo" } %}
               </figure>
               <blockquote class="instructor-card__quote">
-                <p>“Our mission has always been simple — to build stronger people, not just stronger kicks. Taekwondo is a lifelong pursuit of balance, respect, and courage, and we’re honored to guide each student on that journey.”</p>
+                <p>â€œOur mission has always been simple â€” to build stronger people, not just stronger kicks. Taekwondo is a lifelong pursuit of balance, respect, and courage, and weâ€™re honored to guide each student on that journey.â€</p>
                 <span class="instructor-card__quote-name">- Master David Kestenbaum</span>
               </blockquote>
             </div>
@@ -102,7 +102,7 @@ templateEngineOverride: njk
             <div class="instructor-card__body">
             <div class="instructor-card__bio">
               <div class="instructor-card__identity">
-                <img class="instructor-card__avatar" src="img/instructors/master_y.png" alt="Master Jenny Yu smiling in uniform">
+                {% image "img/instructors/master_y.png", "Master Jenny Yu smiling in uniform", "160px", { widths: [200, 320, 480], class: "instructor-card__avatar" } %}
                 <div class="instructor-card__identity-text">
                   <p class="kicker">Program Director / Head Instructor</p>
                   <h2 class="instructor-card__name">Master Jenny Yu</h2>
@@ -137,7 +137,7 @@ templateEngineOverride: njk
             </div>
 
             <blockquote class="instructor-card__quote">
-              “Taekwondo teaches more than movement — it teaches order, focus, and the quiet confidence that comes from understanding how to improve one step at a time. My goal is to help every student find joy in that process.”<br>
+              â€œTaekwondo teaches more than movement â€” it teaches order, focus, and the quiet confidence that comes from understanding how to improve one step at a time. My goal is to help every student find joy in that process.â€<br>
               <span class="instructor-card__quote-name">- Master Jenny Yu</span>
             </blockquote>
             </div>
@@ -149,7 +149,7 @@ templateEngineOverride: njk
             <div class="instructor-card__body">
             <div class="instructor-card__bio">
               <div class="instructor-card__identity">
-                <img class="instructor-card__avatar" src="img/instructors/master_bw.png" alt="Master Bradford Woods smiling in uniform">
+                {% image "img/instructors/master_bw.png", "Master Bradford Woods smiling in uniform", "160px", { widths: [200, 320, 480], class: "instructor-card__avatar" } %}
                 <div class="instructor-card__identity-text">
                   <p class="kicker">Program Director / Head Instructor</p>
                   <h2 class="instructor-card__name">Master Bradford Woods</h2>
@@ -158,7 +158,7 @@ templateEngineOverride: njk
                 </div>
               </div>
               <p class="copy">
-                Master Bradford Woods discovered Taekwondo the same way many parents do—watching his son take class. What began as support from the sidelines quickly became a personal passion when he decided to jump in and train alongside him. Now a 5th degree black belt, Master Woods leads the program at the Elzie Odom branch of Lone Star Institute of Taekwondo.
+                Master Bradford Woods discovered Taekwondo the same way many parents doâ€”watching his son take class. What began as support from the sidelines quickly became a personal passion when he decided to jump in and train alongside him. Now a 5th degree black belt, Master Woods leads the program at the Elzie Odom branch of Lone Star Institute of Taekwondo.
               </p>
 
               <section class="instructor-card__section">
@@ -177,7 +177,7 @@ templateEngineOverride: njk
             </div>
 
             <blockquote class="instructor-card__quote">
-              “Discipline and respect are not just values we recite — they’re habits we build through consistent effort. Whether on the mat or in life, Taekwondo reminds us that the best victories come from perseverance and humility.”<br>
+              â€œDiscipline and respect are not just values we recite â€” theyâ€™re habits we build through consistent effort. Whether on the mat or in life, Taekwondo reminds us that the best victories come from perseverance and humility.â€<br>
               <span class="instructor-card__quote-name">- Master Bradford Woods</span>
             </blockquote>
             </div>
@@ -189,7 +189,7 @@ templateEngineOverride: njk
             <div class="instructor-card__body">
             <div class="instructor-card__bio">
               <div class="instructor-card__identity">
-                <img class="instructor-card__avatar" src="img/instructors/Master_L.png" alt="Master Joseph Louis in uniform">
+                {% image "img/instructors/Master_L.png", "Master Joseph Louis in uniform", "160px", { widths: [200, 320, 480], class: "instructor-card__avatar" } %}
                 <div class="instructor-card__identity-text">
                   <p class="kicker">Instructor</p>
                   <h2 class="instructor-card__name">Master Joseph Louis</h2>
@@ -224,7 +224,7 @@ templateEngineOverride: njk
             </div>
 
             <blockquote class="instructor-card__quote">
-              “I tell my students that Taekwondo is a long road, but it’s never a lonely one. Every kick, every correction, every small win is shared — that’s what makes this art a family and not just a sport.”<br>
+              â€œI tell my students that Taekwondo is a long road, but itâ€™s never a lonely one. Every kick, every correction, every small win is shared â€” thatâ€™s what makes this art a family and not just a sport.â€<br>
               <span class="instructor-card__quote-name">- Master Joseph Louis</span>
             </blockquote>
             </div>
@@ -305,3 +305,4 @@ templateEngineOverride: njk
   </script>
 </body>
 </html>
+
