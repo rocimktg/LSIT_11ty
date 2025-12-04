@@ -3,6 +3,7 @@
 {% set phone = navData.phone or {} %}
 {% set links = navData.links or [] %}
 {% set cta = navData.cta or {} %}
+{% set taglineParts = (navData.brandTagline or 'Arlington, TX | Taekwondo | Martial Arts').split('|') %}
 
 <!-- Desktop Navigation -->
 <nav class="main-nav">
@@ -13,7 +14,11 @@
 
     <div class="nav-content">
       <div class="nav-top-row">
-        <div class="brand-tagline">{{ navData.brandTagline or 'Lone Star Institute of Taekwando' }}</div>
+        <div class="brand-tagline">
+          {% for part in taglineParts %}
+          <span class="brand-tagline__text">{{ part | trim }}</span>{% if not loop.last %}<span class="brand-tagline__pipe" aria-hidden="true">&nbsp;|&nbsp;</span>{% endif %}
+          {% endfor %}
+        </div>
         <div class="utility-links">
           {% if phone.href %}
           <a href="{{ phone.href }}" class="utility-item phone">

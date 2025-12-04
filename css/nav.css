@@ -61,12 +61,18 @@
         }
 
         .brand-tagline {
-            color: var(--secondary);
+            color: var(--focus-ring, #00816f); /* LSIT green/teal */
             font-size: 0.7rem;
             font-weight: 400;
             font-family: Arial, sans-serif;
             letter-spacing: 0.12em;
             text-transform: uppercase;
+        }
+
+        .brand-tagline__pipe {
+            color: var(--text-light, #6a6f94); /* neutral gray from palette */
+            margin: 0; /* spacing handled by non-breaking spaces in markup */
+            letter-spacing: 0; /* keep pipe spacing even */
         }
 
         .utility-links {

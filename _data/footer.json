@@ -1,7 +1,7 @@
 ﻿{
   "cta": {
     "eyebrow": "Ready to get started?",
-    "primary": { "label": "Claim a free week of classes", "href": "index.html#free-week" },
+    "primary": { "label": "Claim Free Class", "href": "index.html#free-week" },
     "secondary": { "label": "Contact us", "href": "contact.html" }
   },
   "tenets": [

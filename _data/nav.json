@@ -4,7 +4,7 @@
     "alt": "Lonestar Institute of Taekwando",
     "homeUrl": "index.html"
   },
-  "brandTagline": "Lone Star Institute of Taekwando",
+  "brandTagline": "Arlington, TX | Taekwondo | Martial Arts",
   "phone": {
     "display": "(682) 554-8531",
     "href": "tel:+16825548531"
@@ -17,7 +17,7 @@
     { "label": "CONTACT", "href": "contact.html" }
   ],
   "cta": {
-    "label": "Claim Free Week",
+    "label": "Claim Free Class",
     "href": "index.html#free-week"
   }
 }
