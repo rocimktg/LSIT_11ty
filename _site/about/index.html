@@ -3,357 +3,564 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About • Lonestar Institute of Taekwondo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Page-scoped helpers for secondary pages (use brand tokens from :root) */
-    .page-container { width: min(1200px, 92vw); margin: 0 auto; }
-    .section { padding: clamp(48px, 8vw, 88px) 0; }
-    .kicker { font-family: Arial, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: var(--secondary); font-size: .85rem; }
-    .h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: .5px; }
-    .h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); line-height: 1.2; letter-spacing: .3px; }
-    .lead { font-family: Arial, sans-serif; color: var(--text-medium); font-size: clamp(1rem, 2.5vw, 1.125rem); line-height: 1.7; }
-    .content { font-family: Arial, sans-serif; color: var(--text-medium); line-height: 1.8; font-size: 1rem; }
-
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .9rem 1.5rem; border-radius: 999px; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
-    .btn:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
-    .btn-primary { background: var(--hero-accent); color: #fff; box-shadow: 0 18px 34px rgba(238, 51, 66, .26); }
-    .btn-primary:hover { background: var(--hero-accent-hover); transform: translateY(-2px); }
-    .btn-secondary { color: var(--primary); border: 2px solid var(--primary); background: #fff; }
-    .btn-secondary:hover { color: #fff; background: var(--secondary); border-color: transparent; transform: translateY(-2px); }
-
-    /* 1. Narrow Hero */
-    .sub-hero { position: relative; display: grid; place-items: center; min-height: 300px; background:
-      linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.6)),
-      url('https://source.unsplash.com/1600x600/?architecture,dojo') center/cover no-repeat; color: #fff; text-align: center; }
-    .sub-hero__inner { padding: clamp(32px, 6vw, 72px) 0; display: grid; gap: 12px; }
-    .sub-hero__title { font-size: clamp(2rem, 4.5vw, 3rem); letter-spacing: .5px; text-transform: uppercase; }
-    .sub-hero__subtitle { font-family: Arial, sans-serif; color: rgba(255,255,255,.85); font-size: clamp(1rem, 2.5vw, 1.1rem); }
-
-    /* 2. Intro */
-    .intro { text-align: center; }
-    .intro .content { max-width: 70ch; margin-inline: auto; }
-
-    /* 3. Feature Cards */
-    .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 3vw, 24px); }
-    .feature-card { background: #fff; border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; display: grid; gap: 12px; box-shadow: 0 8px 24px rgba(16,18,49,.06); }
-    .feature-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; }
-    .feature-card h3 { font-size: 1.1rem; letter-spacing: .02em; }
-    .feature-card a { color: var(--primary); font-weight: 600; }
-    .feature-card a:hover { color: var(--secondary); }
-
-    /* 4 & 6. Split sections */
-    .split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 4vw, 48px); align-items: center; }
-    .split__media img { width: 100%; height: clamp(280px, 40vw, 420px); object-fit: cover; border-radius: 16px; }
-    .split .content { max-width: 54ch; }
-
-    /* 5. Stats Bar */
-    .stats { background: var(--surface-blue); }
-    .stats__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; text-align: center; }
-    .stat__num { color: var(--primary); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; }
-    .stat__label { font-family: Arial, sans-serif; color: var(--text-medium); }
-    .stat__desc { font-family: Arial, sans-serif; color: var(--text-light); font-size: .9rem; }
-
-    /* 7. Gallery */
-    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2vw, 18px); }
-    .gallery__item { position: relative; overflow: hidden; border-radius: 14px; background: #000; }
-    .gallery__item img { width: 100%; height: 100%; aspect-ratio: 5 / 4; object-fit: cover; transition: transform .3s ease, opacity .3s ease; opacity: .92; }
-    .gallery__meta { position: absolute; inset: auto 0 0 0; padding: 14px; color: #fff; background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.5)); }
-    .gallery__item:hover img { transform: scale(1.03); opacity: 1; }
-
-    /* 8. Testimonial */
-    .testimonial { background: var(--surface-green); text-align: center; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
-    .testimonial blockquote { font-size: clamp(1.25rem, 3vw, 1.6rem); line-height: 1.5; color: var(--text-dark); max-width: 60ch; margin: 0 auto; font-style: italic; }
-    .testimonial__author { margin-top: 12px; font-family: Arial, sans-serif; color: var(--text-medium); }
-    .testimonial__avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin: 12px auto 0; border: 2px solid var(--primary); }
-
-    /* 9. Accordions */
-    .faq { max-width: 900px; margin: 0 auto; }
-    .accordion { border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; background: #fff; }
-    .accordion__item + .accordion__item { border-top: 1px solid var(--border-color); }
-    .accordion__button { width: 100%; text-align: left; background: #fff; color: var(--text-dark); padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; font-weight: 700; }
-    .accordion__button:hover { background: var(--surface-blue); }
-    .accordion__panel { display: none; padding: 0 18px 16px; color: var(--text-medium); font-family: Arial, sans-serif; }
-
-    /* 10. Services/Process */
-    .process { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-    .process__item { display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: start; background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; }
-    .process__icon { width: 56px; height: 56px; border-radius: 12px; background: var(--surface-blue); display: grid; place-items: center; font-weight: 800; color: var(--primary); }
-
-    /* 11. Image Break */
-    .image-break { min-height: 360px; background:
-      linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
-      url('https://source.unsplash.com/1600x700/?martial-arts,training') center/cover no-repeat; }
-
-    /* 12. CTA Banner */
-    .cta-banner { text-align: center; color: #fff; position: relative; overflow: hidden; background:
-      linear-gradient(135deg, rgba(42, 51, 143, .85), rgba(0, 129, 111, .85)),
-      url('https://source.unsplash.com/1600x500/?abstract') center/cover no-repeat; }
-    .cta-banner__inner { position: relative; z-index: 1; }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .features { grid-template-columns: 1fr 1fr; }
-      .split { grid-template-columns: 1fr; }
-      .stats__grid { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
-      .gallery { grid-template-columns: 1fr 1fr; }
-      .process { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .features { grid-template-columns: 1fr; }
-      .gallery { grid-template-columns: 1fr; }
-      .stats__grid { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+  <title>About Us &mdash; Lone Star Institute of Taekwondo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/reset_and_variables.css">
 </head>
 <body>
-  <!-- 1. Hero Section - Narrow Banner -->
-  <header class="sub-hero" role="banner">
-    <div class="sub-hero__inner page-container">
-      <h1 class="sub-hero__title">Our Story & Values</h1>
-      <p class="sub-hero__subtitle">Discipline, confidence, and community through Taekwondo excellence.</p>
-      <div style="margin-top:12px">
-        <a href="#contact" class="btn btn-primary">Start Your Free Week</a>
+  
+
+
+
+
+
+
+<!-- Desktop Navigation -->
+<nav class="main-nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo-box" aria-label="Lonestar Institute of Taekwando home">
+      <img src="img/lsit_logo.svg" class="logo-image" alt="Lonestar Institute of Taekwando">
+    </a>
+
+    <div class="nav-content">
+      <div class="nav-top-row">
+        <div class="brand-tagline">
+          
+          <span class="brand-tagline__text">Arlington, TX</span><span class="brand-tagline__pipe" aria-hidden="true">&nbsp;|&nbsp;</span>
+          
+          <span class="brand-tagline__text">Taekwondo</span><span class="brand-tagline__pipe" aria-hidden="true">&nbsp;|&nbsp;</span>
+          
+          <span class="brand-tagline__text">Martial Arts</span>
+          
+        </div>
+        <div class="utility-links">
+          
+          <a href="tel:+16825548531" class="utility-item phone">
+            <span class="icon" aria-hidden="true"><i data-lucide="phone"></i></span>
+            <span>(682) 554-8531</span>
+          </a>
+          
+        </div>
+      </div>
+
+      <div class="nav-bottom-row">
+        <div class="nav-menu">
+          
+          <a href="index.html">HOME</a>
+          
+          <a href="about.html">ABOUT US</a>
+          
+          <a href="programs.html">PROGRAMS</a>
+          
+          <a href="locations-schedules.html">LOCATIONS &amp; SCHEDULES</a>
+          
+          <a href="instructors.html">INSTRUCTORS</a>
+          
+          <a href="contact.html">CONTACT</a>
+          
+        </div>
+
+        
+        <a href="index.html#free-week" class="cta-button cta-button--nav">Claim Free Class</a>
+        
       </div>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <!-- 2. Introduction Text Block -->
-  <section class="section intro">
-    <div class="page-container">
-      <h2 class="h2" style="margin-bottom:12px;">Tradition Meets Modern Training</h2>
-      <div class="content">
-        <p>At Lonestar Institute of Taekwondo, we combine time-honored martial arts principles with modern coaching to help students of all ages build focus, resilience, and real self-defense skills. Our instructors foster a supportive culture where progress is measured in effort, mindset, and technique.</p>
-        <p>From our Little Ninjas to Adult Programs, every class is designed to challenge and encourage growth. Whether your goal is confidence, fitness, or competition, our community will meet you where you are and help you take the next step.</p>
+<!-- Mobile Navigation -->
+<nav class="mobile-nav">
+  <a href="index.html" class="logo-image logo-image--mobile" aria-label="Lonestar Institute of Taekwando home">
+    <img src="img/lsit_logo.svg" alt="Lonestar Institute of Taekwando">
+  </a>
+  <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+  <ul class="mobile-menu__list">
+    
+    <li><a href="index.html">HOME</a></li>
+    
+    <li><a href="about.html">ABOUT US</a></li>
+    
+    <li><a href="programs.html">PROGRAMS</a></li>
+    
+    <li><a href="locations-schedules.html">LOCATIONS &amp; SCHEDULES</a></li>
+    
+    <li><a href="instructors.html">INSTRUCTORS</a></li>
+    
+    <li><a href="contact.html">CONTACT</a></li>
+    
+    
+    <li class="mobile-menu__cta"><a href="index.html#free-week" class="cta-button cta-button--nav">Claim Free Class</a></li>
+    
+  </ul>
+</nav>
+
+
+
+  <main>
+    <section class="page-hero page-hero--about" aria-label="About Lone Star Institute of Taekwondo">
+      <div class="page-hero__inner">
+        <h1 class="page-hero__title">About Us</h1>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 3. Three-Column Feature Cards -->
-  <section class="section">
-    <div class="page-container">
-      <div class="features">
-        <article class="feature-card">
-          <img src="https://source.unsplash.com/400x300/?kids,training" alt="Kids training" />
-          <h3>Kid-Focused Curriculum</h3>
-          <p class="content">Age-appropriate coaching that builds respect, listening skills, and coordination while keeping classes fun and active.</p>
-          <a href="#">Learn More</a>
+    <nav class="loc-subnav" aria-label="About navigation">
+      <div class="loc-track">
+        <a class="pill" href="#our-story" aria-current="true">Our Story</a>
+        <a class="pill" href="#lineage">Lineage &amp; History</a>
+        <a class="pill" href="#mission">Mission</a>
+        <a class="pill" href="#culture">Culture</a>
+      </div>
+    </nav>
+
+    <div class="section-band" id="our-story-band" aria-hidden="true">
+      <div class="section-band__inner"><span class="section-band__title">About Lone Star Institute of Taekwondo</span></div>
+    </div>
+    <section class="section page loc-section" id="our-story" aria-labelledby="our-story-band">
+      <div class="cards">
+        <article class="card quiet about-overview">
+          <p class="kicker">Who We Are</p>
+          <h2>About Lone Star Institute of Taekwondo in Arlington, TX</h2>
+          <p class="copy">Lone Star Institute of Taekwondo is a family focused martial arts school located in Pantego, TX and proudly serving Arlington, TX and the surrounding Dallas Fort Worth metroplex. For more than 15 years, families in Arlington have trusted LSIT to help children, teens, and adults build confidence, discipline, and respect through traditional Taekwondo training.</p>
+          <p class="copy">Led by Master David Kestenbaum, Lone Star Institute of Taekwondo in Arlington teaches martial arts as more than physical activity. Our students develop focus, emotional control, humility, and responsibility in a safe, structured environment designed to support long term personal growth at every age and experience level.</p>
+          <p class="copy">Our Taekwondo programs emphasize clear structure, consistent routines, and positive reinforcement. Students learn real, age appropriate self-defense while also being taught self-control, respect for others, and the responsible use of martial arts skills. This balance helps students carry the lessons of Taekwondo beyond the mat and into school, work, and home life.</p>
+          <p class="copy">Although our school is located in Pantego, we proudly welcome families from Arlington, TX as well as nearby communities throughout the DFW area. Whether a student is new to martial arts or continuing their journey, our mission remains the same. To help every student grow stronger, more confident, and more capable in all areas of life.</p>
         </article>
-        <article class="feature-card">
-          <img src="https://source.unsplash.com/400x300/?family,fitness" alt="Family training" />
-          <h3>Family-Friendly Schedules</h3>
-          <p class="content">Flexible programs and times make it simple for families to learn together and stay consistent.</p>
-          <a href="#">Learn More</a>
+      </div>
+    </section>
+
+    <div class="section-band" id="lineage-band" aria-hidden="true">
+      <div class="section-band__inner"><span class="section-band__title">Our Lineage &amp; History</span></div>
+    </div>
+    <section class="section page loc-section" id="lineage" aria-labelledby="lineage-band">
+      <div class="cards">
+        <div class="program-split">
+          <article class="card program-card">
+            <div class="program-card__media" aria-hidden="true">
+              <picture><source type="image/avif" srcset="/img/_bmjA5ZA2y-127.avif 127w" sizes="(min-width: 960px) 40vw, (min-width: 640px) 50vw, 100vw"><source type="image/webp" srcset="/img/_bmjA5ZA2y-127.webp 127w" sizes="(min-width: 960px) 40vw, (min-width: 640px) 50vw, 100vw"><img src="/img/_bmjA5ZA2y-127.jpeg" alt="Master David Kestenbaum teaching at Lone Star Institute of Taekwondo" loading="lazy" decoding="async" width="127" height="127"></picture>
+            </div>
+            <div>
+              <p class="kicker">Founder &amp; Head Instructor</p>
+              <h3>Master David Kestenbaum</h3>
+              <p class="copy">Lone Star Institute of Taekwondo is led by Master David Kestenbaum, founder and head instructor. Master Kestenbaum began training in Taekwondo at a young age and studied under Grandmaster Roy D. Kurban, one of the most influential Taekwondo leaders in North Texas.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <h2>Decades of tradition</h2>
+            <p class="lead">Grandmaster Kurban trained under Grandmaster Won Chik Park, whose institute in Fort Worth helped establish traditional Taekwondo standards throughout the Dallas Fort Worth area. This lineage reflects decades of instruction focused on discipline, technical excellence, and respect for the art.</p>
+            <p class="copy">Master Kestenbaum has trained and taught on multiple continents and has been mentored by several grandmasters and elite-level competitors. With more than 30 years of experience in Taekwondo, sport competition, and athletic development, he brings both tradition and modern training knowledge into every class.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-band" id="mission-band" aria-hidden="true">
+      <div class="section-band__inner"><span class="section-band__title">Our Mission</span></div>
+    </div>
+    <section class="section page loc-section" id="mission" aria-labelledby="mission-band">
+      <div class="cards">
+        <article class="card quiet">
+          <h2>Our Mission</h2>
+          <p class="lead">Our mission at Lone Star Institute of Taekwondo is to help students become their best selves through traditional Taekwondo training built on strong values and consistent instruction.</p>
         </article>
-        <article class="feature-card">
-          <img src="https://source.unsplash.com/400x300/?martial-arts,dojo" alt="Dojo" />
-          <h3>Confidence & Community</h3>
-          <p class="content">Supportive instructors and a welcoming culture help students stay motivated and reach personal goals.</p>
-          <a href="#">Learn More</a>
+
+        <article class="card">
+          <h3>We are committed to</h3>
+          <ul class="bullets">
+            <li>teaching authentic Taekwondo with proper technique and structure</li>
+            <li>developing respect, integrity, perseverance, self-control, and an indomitable spirit</li>
+            <li>creating a safe and welcoming environment for children, teens, and adults</li>
+            <li>building confidence that carries into school, work, sports, and daily life</li>
+          </ul>
+          <p class="copy">We believe Taekwondo should be accessible, supportive, and meaningful. Our goal is not only to train martial artists, but to help shape confident individuals and strong families within our community.</p>
         </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 4. Image Left / Content Right -->
-  <section class="section">
-    <div class="page-container split">
-      <div class="split__media">
-        <img src="https://source.unsplash.com/800x600/?dojo,training" alt="Training hall" />
-      </div>
-      <div>
-        <h2 class="h2">What Sets Us Apart</h2>
-        <p class="content">We focus on strong fundamentals and safe, progressive skill development in a positive environment. Our belt system rewards consistency and character along with technical proficiency.</p>
-        <ul class="content" style="margin-top:8px;">
-          <li>Certified, experienced instructors</li>
-          <li>Clear goals and belt progression</li>
-          <li>Inclusive community for all levels</li>
-        </ul>
-        <div style="margin-top:16px;"><a href="#programs" class="btn btn-secondary">Explore Programs</a></div>
-      </div>
+    <div class="section-band" id="culture-band" aria-hidden="true">
+      <div class="section-band__inner"><span class="section-band__title">Our Culture</span></div>
     </div>
-  </section>
+    <section class="section page loc-section" id="culture" aria-labelledby="culture-band">
+      <div class="cards">
+        <div class="program-split">
+          <article class="card">
+            <p class="kicker">How we show up</p>
+            <h2>Our Culture</h2>
+            <ul class="bullets">
+              <li>Culture built on respect and encouragement</li>
+              <li>Community that welcomes families and supports growth</li>
+              <li>Commitment to excellence in teaching and personal development</li>
+            </ul>
+            <p class="copy">With no long-term contracts and flexible class options, we understand that life happens. Our focus remains on consistent progress, positive coaching, and long-term success for every student.</p>
+          </article>
 
-  <!-- 5. Statistics Bar -->
-  <section class="section stats">
-    <div class="page-container stats__grid">
-      <div>
-        <div class="stat__num">15+</div>
-        <div class="stat__label">Years Teaching</div>
-        <div class="stat__desc">Serving our community</div>
+          <article class="card program-card">
+            <div class="program-card__media" aria-hidden="true">
+              <picture><source type="image/avif" srcset="/img/g_J3a_r12o-480.avif 480w, /img/g_J3a_r12o-800.avif 800w, /img/g_J3a_r12o-1200.avif 1200w" sizes="(min-width: 960px) 40vw, (min-width: 640px) 50vw, 100vw"><source type="image/webp" srcset="/img/g_J3a_r12o-480.webp 480w, /img/g_J3a_r12o-800.webp 800w, /img/g_J3a_r12o-1200.webp 1200w" sizes="(min-width: 960px) 40vw, (min-width: 640px) 50vw, 100vw"><img src="/img/g_J3a_r12o-480.jpeg" alt="Students training together at Lone Star Institute of Taekwondo" loading="lazy" decoding="async" width="1200" height="786" srcset="/img/g_J3a_r12o-480.jpeg 480w, /img/g_J3a_r12o-800.jpeg 800w, /img/g_J3a_r12o-1200.jpeg 1200w" sizes="(min-width: 960px) 40vw, (min-width: 640px) 50vw, 100vw"></picture>
+            </div>
+            <div>
+              <p class="kicker">Supportive community</p>
+              <h3>Accessible, supportive, meaningful</h3>
+              <p class="copy">We proudly serve families throughout the Arlington and Pantego area with both full-time and part-time programs that emphasize personal growth as much as physical skill.</p>
+            </div>
+          </article>
+        </div>
       </div>
-      <div>
-        <div class="stat__num">1,200+</div>
-        <div class="stat__label">Students Trained</div>
-        <div class="stat__desc">Kids, teens, and adults</div>
-      </div>
-      <div>
-        <div class="stat__num">98%</div>
-        <div class="stat__label">Parent Satisfaction</div>
-        <div class="stat__desc">Survey feedback</div>
-      </div>
-      <div>
-        <div class="stat__num">25</div>
-        <div class="stat__label">Weekly Classes</div>
-        <div class="stat__desc">Flexible scheduling</div>
-      </div>
+    </section>
+  </main>
+
+  
+
+
+
+
+
+
+
+
+
+<section class="tenets-cta" aria-label="Ready to begin">
+  <div class="tenets-cta__inner">
+    <p class="tenets-cta__eyebrow">Ready to get started?</p>
+    <div class="tenets-cta__actions">
+      
+      <a class="tenets-cta__link tenets-cta__link--primary" href="index.html#free-week">Claim Free Class</a>
+      
+      <span aria-hidden="true" class="tenets-cta__divider">|</span>
+      
+      <a class="tenets-cta__link tenets-cta__link--secondary" href="contact.html">Contact us</a>
+      
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 6. Content Left / Image Right -->
-  <section class="section">
-    <div class="page-container split">
-      <div>
-        <h2 class="h2">Our Training Philosophy</h2>
-        <p class="content">Progress is personal. We teach students to embrace challenges, support teammates, and carry discipline beyond the mat. Each class balances technique, conditioning, and mindset.</p>
-        <p class="content">Students build confidence by setting goals, practicing consistently, and celebrating milestones along the way.</p>
-      </div>
-      <div class="split__media">
-        <img src="https://source.unsplash.com/800x600/?martial-arts,kick" alt="Kick practice" />
-      </div>
-    </div>
-  </section>
+<section class="tenets-marquee" aria-labelledby="tenets-heading">
+  <h2 id="tenets-heading" class="visually-hidden">The Five Tenets of Taekwondo</h2>
 
-  <!-- 7. Grid Gallery / Case Studies -->
-  <section class="section">
-    <div class="page-container gallery">
-      <article class="gallery__item">
-        <img src="https://source.unsplash.com/500x400/?martial-arts,focus" alt="Focus" />
-        <div class="gallery__meta"><strong>Focus</strong><br><small>Building attention & control</small></div>
+  <div class="tenets-marquee__viewport tenets-marquee__viewport--desktop" aria-hidden="false">
+    <div class="tenets-marquee__track">
+      
+      <article class="tenet" role="group" aria-label="Courtesy">
+        <div class="tenet__inner tenet--courtesy">
+          <div class="tenet__hangul" lang="ko">예의</div>
+          <h3 class="tenet__title">Courtesy</h3>
+          <div class="tenet__romanization">Ye-wee</div>
+          <p class="tenet__desc">Courtesy (예의, ye-wee) reminds us to show respect in the dojang and beyond through sincere etiquette and kindness.</p>
+        </div>
       </article>
-      <article class="gallery__item">
-        <img src="https://source.unsplash.com/500x400/?martial-arts,confidence" alt="Confidence" />
-        <div class="gallery__meta"><strong>Confidence</strong><br><small>Earned through effort</small></div>
+      
+      <article class="tenet" role="group" aria-label="Integrity">
+        <div class="tenet__inner tenet--integrity">
+          <div class="tenet__hangul" lang="ko">염치</div>
+          <h3 class="tenet__title">Integrity</h3>
+          <div class="tenet__romanization">Yom-chee</div>
+          <p class="tenet__desc">Integrity (염치, yom-chee) calls for honesty, strong morals, and the courage to do what is right even when it is difficult.</p>
+        </div>
       </article>
-      <article class="gallery__item">
-        <img src="https://source.unsplash.com/500x400/?martial-arts,discipline" alt="Discipline" />
-        <div class="gallery__meta"><strong>Discipline</strong><br><small>Habits that last</small></div>
+      
+      <article class="tenet" role="group" aria-label="Perseverance">
+        <div class="tenet__inner tenet--perseverance">
+          <div class="tenet__hangul" lang="ko">인내</div>
+          <h3 class="tenet__title">Perseverance</h3>
+          <div class="tenet__romanization">Een-nay</div>
+          <p class="tenet__desc">Perseverance (인내, een-nay) is the willingness to keep pushing toward every goal despite obstacles in training or life.</p>
+        </div>
       </article>
-      <article class="gallery__item">
-        <img src="https://source.unsplash.com/500x400/?dojo,community" alt="Community" />
-        <div class="gallery__meta"><strong>Community</strong><br><small>Supportive culture</small></div>
+      
+      <article class="tenet" role="group" aria-label="Self Control">
+        <div class="tenet__inner tenet--selfcontrol">
+          <div class="tenet__hangul" lang="ko">극기</div>
+          <h3 class="tenet__title">Self Control</h3>
+          <div class="tenet__romanization">Gook-gee</div>
+          <p class="tenet__desc">Self control (극기, gook-gee) keeps thoughts, emotions, and actions in balance so we can respond with a steady mind and body.</p>
+        </div>
       </article>
-      <article class="gallery__item">
-        <img src="https://source.unsplash.com/500x400/?martial-arts,coach" alt="Coaching" />
-        <div class="gallery__meta"><strong>Coaching</strong><br><small>Experienced instructors</small></div>
+      
+      <article class="tenet" role="group" aria-label="Indomitable Spirit">
+        <div class="tenet__inner tenet--indomitablespirit">
+          <div class="tenet__hangul" lang="ko">백절불굴</div>
+          <h3 class="tenet__title">Indomitable Spirit</h3>
+          <div class="tenet__romanization">Baekjool Boolgool</div>
+          <p class="tenet__desc">Indomitable spirit (백절불굴, baekjool boolgool) is to be defeated a hundred times yet never bent — the heart of true strength.</p>
+        </div>
       </article>
-      <article class="gallery__item">
-        <img src="https://source.unsplash.com/500x400/?martial-arts,achievement" alt="Achievement" />
-        <div class="gallery__meta"><strong>Achievement</strong><br><small>Milestones & belts</small></div>
+      
+      
+      <article class="tenet" role="group" aria-label="Courtesy" aria-hidden="true">
+        <div class="tenet__inner tenet--courtesy">
+          <div class="tenet__hangul" lang="ko">예의</div>
+          <h3 class="tenet__title">Courtesy</h3>
+          <div class="tenet__romanization">Ye-wee</div>
+          <p class="tenet__desc">Courtesy (예의, ye-wee) reminds us to show respect in the dojang and beyond through sincere etiquette and kindness.</p>
+        </div>
       </article>
+      
+      <article class="tenet" role="group" aria-label="Integrity" aria-hidden="true">
+        <div class="tenet__inner tenet--integrity">
+          <div class="tenet__hangul" lang="ko">염치</div>
+          <h3 class="tenet__title">Integrity</h3>
+          <div class="tenet__romanization">Yom-chee</div>
+          <p class="tenet__desc">Integrity (염치, yom-chee) calls for honesty, strong morals, and the courage to do what is right even when it is difficult.</p>
+        </div>
+      </article>
+      
+      <article class="tenet" role="group" aria-label="Perseverance" aria-hidden="true">
+        <div class="tenet__inner tenet--perseverance">
+          <div class="tenet__hangul" lang="ko">인내</div>
+          <h3 class="tenet__title">Perseverance</h3>
+          <div class="tenet__romanization">Een-nay</div>
+          <p class="tenet__desc">Perseverance (인내, een-nay) is the willingness to keep pushing toward every goal despite obstacles in training or life.</p>
+        </div>
+      </article>
+      
+      <article class="tenet" role="group" aria-label="Self Control" aria-hidden="true">
+        <div class="tenet__inner tenet--selfcontrol">
+          <div class="tenet__hangul" lang="ko">극기</div>
+          <h3 class="tenet__title">Self Control</h3>
+          <div class="tenet__romanization">Gook-gee</div>
+          <p class="tenet__desc">Self control (극기, gook-gee) keeps thoughts, emotions, and actions in balance so we can respond with a steady mind and body.</p>
+        </div>
+      </article>
+      
+      <article class="tenet" role="group" aria-label="Indomitable Spirit" aria-hidden="true">
+        <div class="tenet__inner tenet--indomitablespirit">
+          <div class="tenet__hangul" lang="ko">백절불굴</div>
+          <h3 class="tenet__title">Indomitable Spirit</h3>
+          <div class="tenet__romanization">Baekjool Boolgool</div>
+          <p class="tenet__desc">Indomitable spirit (백절불굴, baekjool boolgool) is to be defeated a hundred times yet never bent — the heart of true strength.</p>
+        </div>
+      </article>
+      
     </div>
+  </div>
+
+  <div class="tenets-carousel" aria-label="Swipe through the five tenets">
+    <div class="tenets-carousel__viewport">
+      
+      <article class="tenet" role="group" aria-label="Courtesy">
+        <div class="tenet__inner tenet--courtesy">
+          <div class="tenet__hangul" lang="ko">예의</div>
+          <h3 class="tenet__title">Courtesy</h3>
+          <div class="tenet__romanization">Ye-wee</div>
+          <p class="tenet__desc">Courtesy (예의, ye-wee) reminds us to show respect in the dojang and beyond through sincere etiquette and kindness.</p>
+        </div>
+      </article>
+      
+      <article class="tenet" role="group" aria-label="Integrity">
+        <div class="tenet__inner tenet--integrity">
+          <div class="tenet__hangul" lang="ko">염치</div>
+          <h3 class="tenet__title">Integrity</h3>
+          <div class="tenet__romanization">Yom-chee</div>
+          <p class="tenet__desc">Integrity (염치, yom-chee) calls for honesty, strong morals, and the courage to do what is right even when it is difficult.</p>
+        </div>
+      </article>
+      
+      <article class="tenet" role="group" aria-label="Perseverance">
+        <div class="tenet__inner tenet--perseverance">
+          <div class="tenet__hangul" lang="ko">인내</div>
+          <h3 class="tenet__title">Perseverance</h3>
+          <div class="tenet__romanization">Een-nay</div>
+          <p class="tenet__desc">Perseverance (인내, een-nay) is the willingness to keep pushing toward every goal despite obstacles in training or life.</p>
+        </div>
+      </article>
+      
+      <article class="tenet" role="group" aria-label="Self Control">
+        <div class="tenet__inner tenet--selfcontrol">
+          <div class="tenet__hangul" lang="ko">극기</div>
+          <h3 class="tenet__title">Self Control</h3>
+          <div class="tenet__romanization">Gook-gee</div>
+          <p class="tenet__desc">Self control (극기, gook-gee) keeps thoughts, emotions, and actions in balance so we can respond with a steady mind and body.</p>
+        </div>
+      </article>
+      
+      <article class="tenet" role="group" aria-label="Indomitable Spirit">
+        <div class="tenet__inner tenet--indomitablespirit">
+          <div class="tenet__hangul" lang="ko">백절불굴</div>
+          <h3 class="tenet__title">Indomitable Spirit</h3>
+          <div class="tenet__romanization">Baekjool Boolgool</div>
+          <p class="tenet__desc">Indomitable spirit (백절불굴, baekjool boolgool) is to be defeated a hundred times yet never bent — the heart of true strength.</p>
+        </div>
+      </article>
+      
+    </div>
+    <div class="tenets-carousel__dots" role="tablist" aria-label="Select a tenet"></div>
+  </div>
+</section>
+
+<footer class="site-footer" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="visually-hidden">Lonestar Institute of Taekwando Footer</h2>
+  <div class="site-footer__main">
+    <div class="site-footer__column site-footer__column--brand">
+      <a href="index.html" class="site-footer__logo" aria-label="Lonestar Institute of Taekwando home">
+        <img src="img/lsit_logo.svg" alt="Lonestar Institute of Taekwando logo">
+        <span class="logo-text">LONE STAR<br>INSTITUTE OF<br>TAEKWANDO</span>
+      </a>
+      <p class="site-footer__tagline">Building confident leaders through disciplined martial arts training for every age and stage.</p>
+      <address class="site-footer__contact" aria-label="Contact information">
+        
+        <a href="https://maps.google.com/?q=1541+S.+Bowen+Road+Pantego+TX+76013" class="site-footer__contact-link">
+          <i data-lucide="map-pin" aria-hidden="true"></i>
+          1541 S. Bowen Road<br /> Pantego, TX 76013
+        </a>
+        
+        
+        <a href="tel:+16825548531" class="site-footer__contact-link">
+          <i data-lucide="phone" aria-hidden="true"></i>
+          (682) 554-8531
+        </a>
+        
+        
+        <a href="mailto:info@LSITKD.com" class="site-footer__contact-link">
+          <i data-lucide="mail" aria-hidden="true"></i>
+          info@LSITKD.com
+        </a>
+        
+      </address>
+    </div>
+
+    <nav class="site-footer__column" aria-labelledby="footer-quick-links-heading">
+      <h3 id="footer-quick-links-heading" class="site-footer__heading">Quick Links</h3>
+      <ul class="site-footer__list">
+        
+        <li><a href="index.html">Home</a></li>
+        
+        <li><a href="programs.html">Programs</a></li>
+        
+        <li><a href="locations-schedules.html">Locations &amp; Schedules</a></li>
+        
+        <li><a href="instructors.html">Instructors</a></li>
+        
+        <li><a href="contact.html">Contact</a></li>
+        
+      </ul>
+    </nav>
+
+    <nav class="site-footer__column" aria-labelledby="footer-programs-heading">
+      <h3 id="footer-programs-heading" class="site-footer__heading">Our Programs</h3>
+      <ul class="site-footer__list">
+        
+        <li><a href="programs.html#youth">Youth Programs</a></li>
+        
+        <li><a href="programs.html#adult">Adult Programs</a></li>
+        
+        <li><a href="programs.html#advanced">Advanced Programs</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="site-footer__column site-footer__column--media" aria-labelledby="footer-video-heading">
+      <h3 id="footer-video-heading" class="site-footer__heading">How to Tie Your Belt</h3>
+      <p class="site-footer__newsletter-text">Watch our quick tutorial so you&#39;re ready before stepping on the mat.</p>
+      <div class="site-footer__video" role="group" aria-label="Instructional video: How to Tie Your Belt">
+        <iframe
+          src="https://www.youtube.com/embed/ZHXuFQp9OQs?start=1"
+          title="How to Tie Your Belt"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <a class="site-footer__video-link" href="https://www.youtube.com/watch?v=ZHXuFQp9OQs&amp;t=1s" target="_blank" rel="noopener noreferrer">
+        watch on youtube
+      </a>
+    </div>
+  </div>
+
+  <section class="site-footer__trust" aria-label="Trust indicators">
+    <div class="site-footer__trust-item site-footer__trust-item--label">Proud members of:</div>
+    
+    <div class="site-footer__trust-item">
+      <picture><source type="image/avif" srcset="/img/VKInGc__bJ-80.avif 80w, /img/VKInGc__bJ-120.avif 120w, /img/VKInGc__bJ-160.avif 160w" sizes="80px"><source type="image/webp" srcset="/img/VKInGc__bJ-80.webp 80w, /img/VKInGc__bJ-120.webp 120w, /img/VKInGc__bJ-160.webp 160w" sizes="80px"><img src="/img/VKInGc__bJ-80.jpeg" alt="Texas Karate League logo" loading="lazy" decoding="async" class="site-footer__trust-icon" width="160" height="160" srcset="/img/VKInGc__bJ-80.jpeg 80w, /img/VKInGc__bJ-120.jpeg 120w, /img/VKInGc__bJ-160.jpeg 160w" sizes="80px"></picture>
+      <a href="https://texaskarateleague.com/" target="_blank" rel="noopener noreferrer">Texas Karate League</a>
+    </div>
+    
+    <div class="site-footer__trust-item">
+      <picture><source type="image/avif" srcset="/img/0hEam-krMJ-80.avif 80w, /img/0hEam-krMJ-120.avif 120w, /img/0hEam-krMJ-160.avif 160w" sizes="80px"><source type="image/webp" srcset="/img/0hEam-krMJ-80.webp 80w, /img/0hEam-krMJ-120.webp 120w, /img/0hEam-krMJ-160.webp 160w" sizes="80px"><img src="/img/0hEam-krMJ-80.jpeg" alt="Texas State Taekwondo Association logo" loading="lazy" decoding="async" class="site-footer__trust-icon" width="160" height="160" srcset="/img/0hEam-krMJ-80.jpeg 80w, /img/0hEam-krMJ-120.jpeg 120w, /img/0hEam-krMJ-160.jpeg 160w" sizes="80px"></picture>
+      <a href="https://www.txtkd.org/" target="_blank" rel="noopener noreferrer">Texas State Taekwondo Association</a>
+    </div>
+    
+    <div class="site-footer__trust-item">
+      <picture><source type="image/avif" srcset="/img/p4qupD38oq-80.avif 80w, /img/p4qupD38oq-120.avif 120w, /img/p4qupD38oq-160.avif 160w" sizes="80px"><source type="image/webp" srcset="/img/p4qupD38oq-80.webp 80w, /img/p4qupD38oq-120.webp 120w, /img/p4qupD38oq-160.webp 160w" sizes="80px"><img src="/img/p4qupD38oq-80.jpeg" alt="USA Taekwondo logo" loading="lazy" decoding="async" class="site-footer__trust-icon" width="160" height="160" srcset="/img/p4qupD38oq-80.jpeg 80w, /img/p4qupD38oq-120.jpeg 120w, /img/p4qupD38oq-160.jpeg 160w" sizes="80px"></picture>
+      <a href="https://www.usatkd.org/" target="_blank" rel="noopener noreferrer">USA Taekwondo</a>
+    </div>
+    
   </section>
 
-  <!-- 8. Testimonial -->
-  <section class="section testimonial">
-    <div class="page-container">
-      <img class="testimonial__avatar" src="https://source.unsplash.com/150x150/?face" alt="Parent portrait" />
-      <blockquote>“Our family has grown so much here. The instructors are patient, the classes are energetic, and my kids can’t wait to come back each week.”</blockquote>
-      <div class="testimonial__author">— Jamie R., Parent</div>
+  <div class="site-footer__bottom">
+    <p class="site-footer__copyright">© 2025 Lone Star Institute of Taekwando. All rights reserved.</p>
+    <div class="site-footer__legal">
+      
+        
+        <a href="#privacy">Privacy Policy</a>
+      
+        <span aria-hidden="true">|</span>
+        <a href="#terms">Terms of Service</a>
+      
+        <span aria-hidden="true">|</span>
+        <a href="#accessibility">Accessibility</a>
+      
     </div>
-  </section>
+    <p class="site-footer__credit">Website by <a href="https://rocinantemarketing.com">Rocinante Marketing</a></p>
+  </div>
+</footer>
 
-  <!-- 9. Accordion / FAQ -->
-  <section class="section faq">
-    <div class="page-container">
-      <h2 class="h2" style="text-align:center; margin-bottom: 18px;">Frequently Asked Questions</h2>
-      <div class="accordion" id="faq">
-        <div class="accordion__item">
-          <button class="accordion__button" aria-expanded="false" aria-controls="p1" id="h1">What should I bring to my first class?<span>+</span></button>
-          <div class="accordion__panel" id="p1" role="region" aria-labelledby="h1">
-            <p class="content">Wear comfortable athletic clothing and bring a water bottle. We’ll guide you through everything else on day one.</p>
-          </div>
-        </div>
-        <div class="accordion__item">
-          <button class="accordion__button" aria-expanded="false" aria-controls="p2" id="h2">Do I need prior experience?<span>+</span></button>
-          <div class="accordion__panel" id="p2" role="region" aria-labelledby="h2">
-            <p class="content">No experience needed. Our programs welcome beginners and experienced students alike with appropriate level groupings.</p>
-          </div>
-        </div>
-        <div class="accordion__item">
-          <button class="accordion__button" aria-expanded="false" aria-controls="p3" id="h3">Can families train together?<span>+</span></button>
-          <div class="accordion__panel" id="p3" role="region" aria-labelledby="h3">
-            <p class="content">Yes! We offer options for parent-child participation and aligned class times to make family training easier.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<button class="back-to-top" type="button" aria-label="Back to top">
+  <i data-lucide="chevron-up" aria-hidden="true"></i>
+</button>
 
-  <!-- 10. Two-Column Service/Process Grid -->
-  <section class="section">
-    <div class="page-container process">
-      <div class="process__item">
-        <div class="process__icon">1</div>
-        <div>
-          <h3>Try a Free Week</h3>
-          <p class="content">Experience the energy, meet our instructors, and see if it’s a fit.</p>
-        </div>
-      </div>
-      <div class="process__item">
-        <div class="process__icon">2</div>
-        <div>
-          <h3>Set Your Goals</h3>
-          <p class="content">Confidence, fitness, competition, or all of the above—we’ll support your path.</p>
-        </div>
-      </div>
-      <div class="process__item">
-        <div class="process__icon">3</div>
-        <div>
-          <h3>Build Consistency</h3>
-          <p class="content">Progress through belts with structured, achievable milestones.</p>
-        </div>
-      </div>
-      <div class="process__item">
-        <div class="process__icon">4</div>
-        <div>
-          <h3>Celebrate Wins</h3>
-          <p class="content">Track growth and enjoy a supportive team atmosphere.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- 11. Full-Width Image Break -->
-  <section class="image-break"></section>
 
-  <!-- 12. Call-to-Action Banner -->
-  <section class="section cta-banner">
-    <div class="page-container cta-banner__inner">
-      <h2 class="h2" style="color:#fff;">Ready to Train?</h2>
-      <p class="lead" style="color:rgba(255,255,255,.9);">Claim your free week and take the first step today.</p>
-      <div style="display:flex; gap:12px; justify-content:center; margin-top:8px;">
-        <a href="index.html#free-week" class="btn btn-primary">Claim Free Class</a>
-        <a href="tel:+16825548531" class="btn btn-secondary">Call Us</a>
-      </div>
-    </div>
-  </section>
-
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script>
-    // Simple accordion logic: only one open at a time
-    (function(){
-      const root = document.getElementById('faq');
-      if (!root) return;
-      const items = Array.from(root.querySelectorAll('.accordion__item'));
-      items.forEach(item => {
-        const btn = item.querySelector('.accordion__button');
-        const panel = item.querySelector('.accordion__panel');
-        btn.addEventListener('click', () => {
-          const expand = btn.getAttribute('aria-expanded') === 'true';
-          // close all
-          items.forEach(i => {
-            i.querySelector('.accordion__button').setAttribute('aria-expanded', 'false');
-            i.querySelector('.accordion__panel').style.display = 'none';
-          });
-          // open current if it was closed
-          if (!expand) {
-            btn.setAttribute('aria-expanded', 'true');
-            panel.style.display = 'block';
-          }
+    lucide.createIcons();
+  </script>
+
+  <script src="tenets-marquee.js" defer></script>
+  <script src="menu.js" defer></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const sections = Array.from(document.querySelectorAll(".loc-section"));
+      const pills = Array.from(document.querySelectorAll(".loc-track .pill"));
+      const hero = document.querySelector(".page-hero");
+      if (!sections.length || !pills.length) return;
+
+      const findPill = id => pills.find(p => p.getAttribute("href") === `#${id}`);
+      const defaultPill = pills[0] || null;
+
+      const setActive = pill => {
+        pills.forEach(p => {
+          p.classList.remove("active");
+          p.removeAttribute("aria-current");
         });
-      });
-    })();
+        if (pill) {
+          pill.classList.add("active");
+          pill.setAttribute("aria-current", "true");
+        }
+      };
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          if (hero && entry.target === hero) {
+            if (defaultPill) setActive(defaultPill);
+            return;
+          }
+          const pill = findPill(entry.target.id);
+          if (pill) setActive(pill);
+        });
+      }, { rootMargin: "-15% 0px -60% 0px", threshold: 0.1 });
+
+      sections.forEach(section => observer.observe(section));
+      if (hero) observer.observe(hero);
+      pills.forEach(pill => pill.addEventListener("click", () => pill.blur()));
+    });
   </script>
 </body>
 </html>

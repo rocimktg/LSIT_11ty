@@ -46,16 +46,16 @@
   "contact": {
     "address": {
       "href": "https://maps.google.com/?q=1541+S.+Bowen+Road+Pantego+TX+76013",
-      "text": "1541 S. Bowen Road\\nPantego, TX 76013"
+      "text": "1541 S. Bowen Road\nPantego, TX 76013"
     },
     "phone": { "href": "tel:+16825548531", "text": "(682) 554-8531" },
     "email": { "href": "mailto:info@LSITKD.com", "text": "info@LSITKD.com" }
   },
   "quickLinks": [
     { "label": "Home", "href": "index.html" },
+    { "label": "About Us", "href": "about.html" },
     { "label": "Programs", "href": "programs.html" },
     { "label": "Locations & Schedules", "href": "locations-schedules.html" },
-    { "label": "Instructors", "href": "instructors.html" },
     { "label": "Contact", "href": "contact.html" }
   ],
   "programLinks": [

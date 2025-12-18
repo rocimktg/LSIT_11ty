@@ -11,9 +11,9 @@
   },
   "links": [
     { "label": "HOME", "href": "index.html" },
+    { "label": "ABOUT US", "href": "about.html" },
     { "label": "PROGRAMS", "href": "programs.html" },
     { "label": "LOCATIONS & SCHEDULES", "href": "locations-schedules.html" },
-    { "label": "INSTRUCTORS", "href": "instructors.html" },
     { "label": "CONTACT", "href": "contact.html" }
   ],
   "cta": {
