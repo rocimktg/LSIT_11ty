@@ -2395,6 +2395,11 @@ html { scroll-behavior: smooth; }
   gap: 6px;
 }
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(7, 12, 24, 0.45);
+}
+
 .form-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
