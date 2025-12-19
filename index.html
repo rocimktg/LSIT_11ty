@@ -64,7 +64,7 @@ templateEngineOverride: njk
     <main>
         <section class="hero hero--emerald" aria-labelledby="hero-heading">
             <div class="video-wrap">
-                <video class="hero__video" autoplay muted loop playsinline webkit-playsinline preload="metadata" aria-hidden="true">
+                <video class="hero__video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
                     <source src="video/LSIT_BW.mp4" type="video/mp4" media="(min-width: 768px)">
                 </video>
                 {% image "img/fallback.webp", "", "(min-width: 1200px) 1200px, 100vw", { class: "hero__fallback", "aria-hidden": "true", widths: [640, 960, 1280] } %}

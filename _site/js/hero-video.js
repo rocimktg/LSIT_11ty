@@ -40,6 +40,11 @@
       }
     };
 
+    const pauseVideo = () => {
+      video.pause();
+      markPlaying(false);
+    };
+
     markPlaying(false);
     tryPlay();
 
@@ -53,6 +58,19 @@
     });
     video.addEventListener('error', () => markPlaying(false));
     video.addEventListener('stalled', tryPlay);
+
+    // Pause when offscreen, play when onscreen
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tryPlay();
+        } else {
+          pauseVideo();
+        }
+      });
+    }, { root: null, threshold: 0.35 });
+
+    observer.observe(video);
 
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') {
