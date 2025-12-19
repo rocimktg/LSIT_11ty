@@ -49,7 +49,8 @@ module.exports = function (eleventyConfig) {
     "tenets-marquee.js": "tenets-marquee.js",
     "menu.js": "menu.js",
     "load-footer.js": "load-footer.js",
-    "load-nav.js": "load-nav.js"
+    "load-nav.js": "load-nav.js",
+    "robots.txt": "robots.txt"
   });
 
   // ---- REGISTER SHORTCODES ----
