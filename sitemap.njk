@@ -1,0 +1,19 @@
+---
+permalink: sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% set site = "https://lsitkd.com" %}
+  {% for page in collections.all %}
+    {% if page.url and page.url.startsWith('/') and not page.url.startsWith('/nav/') and not page.url.startsWith('/footer/') and not page.url.startsWith('/docs/') %}
+    <url>
+      <loc>{{ site }}{{ page.url }}</loc>
+      {% if page.date %}
+      {% set lastmod = page.date.toISOString().slice(0, 10) %}
+      <lastmod>{{ lastmod }}</lastmod>
+      {% endif %}
+    </url>
+    {% endif %}
+  {% endfor %}
+</urlset>

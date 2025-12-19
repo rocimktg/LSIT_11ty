@@ -1,39 +1,45 @@
-﻿{
+{
   "cta": {
     "eyebrow": "Ready to get started?",
-    "primary": { "label": "Claim Free Class", "href": "index.html#free-week" },
-    "secondary": { "label": "Contact us", "href": "contact.html" }
+    "primary": {
+      "label": "Claim Free Class",
+      "href": "index.html#free-week"
+    },
+    "secondary": {
+      "label": "Contact us",
+      "href": "contact.html"
+    }
   },
   "tenets": [
     {
       "title": "Courtesy",
-      "hangul": "\uC608\uC758",
+      "hangul": "\uc608\uc758",
       "romanization": "Ye-wee",
-      "description": "Courtesy (\uC608\uC758, ye-wee) reminds us to show respect in the dojang and beyond through sincere etiquette and kindness."
+      "description": "Courtesy (\uc608\uc758, ye-wee) reminds us to show respect in the dojang and beyond through sincere etiquette and kindness."
     },
     {
       "title": "Integrity",
-      "hangul": "\uC5FC\uCE58",
+      "hangul": "\uc5fc\uce58",
       "romanization": "Yom-chee",
-      "description": "Integrity (\uC5FC\uCE58, yom-chee) calls for honesty, strong morals, and the courage to do what is right even when it is difficult."
+      "description": "Integrity (\uc5fc\uce58, yom-chee) calls for honesty, strong morals, and the courage to do what is right even when it is difficult."
     },
     {
       "title": "Perseverance",
-      "hangul": "\uC778\uB0B4",
+      "hangul": "\uc778\ub0b4",
       "romanization": "Een-nay",
-      "description": "Perseverance (\uC778\uB0B4, een-nay) is the willingness to keep pushing toward every goal despite obstacles in training or life."
+      "description": "Perseverance (\uc778\ub0b4, een-nay) is the willingness to keep pushing toward every goal despite obstacles in training or life."
     },
     {
       "title": "Self Control",
-      "hangul": "\uADF9\uAE30",
+      "hangul": "\uadf9\uae30",
       "romanization": "Gook-gee",
-      "description": "Self control (\uADF9\uAE30, gook-gee) keeps thoughts, emotions, and actions in balance so we can respond with a steady mind and body."
+      "description": "Self control (\uadf9\uae30, gook-gee) keeps thoughts, emotions, and actions in balance so we can respond with a steady mind and body."
     },
     {
       "title": "Indomitable Spirit",
-      "hangul": "\uBC31\uC808\uBD88\uAD74",
+      "hangul": "\ubc31\uc808\ubd88\uad74",
       "romanization": "Baekjool Boolgool",
-      "description": "Indomitable spirit (\uBC31\uC808\uBD88\uAD74, baekjool boolgool) is to be defeated a hundred times yet never bent — the heart of true strength."
+      "description": "Indomitable spirit (\ubc31\uc808\ubd88\uad74, baekjool boolgool) is to be defeated a hundred times yet never bent \u2014 the heart of true strength."
     }
   ],
   "brand": {
@@ -48,20 +54,58 @@
       "href": "https://maps.google.com/?q=1541+S.+Bowen+Road+Pantego+TX+76013",
       "text": "1541 S. Bowen Road\nPantego, TX 76013"
     },
-    "phone": { "href": "tel:+16825548531", "text": "(682) 554-8531" },
-    "email": { "href": "mailto:info@LSITKD.com", "text": "info@LSITKD.com" }
+    "phone": {
+      "href": "tel:+16825548531",
+      "text": "(682) 554-8531"
+    },
+    "email": {
+      "href": "mailto:info@LSITKD.com",
+      "text": "info@LSITKD.com"
+    }
   },
   "quickLinks": [
-    { "label": "Home", "href": "index.html" },
-    { "label": "About Us", "href": "about.html" },
-    { "label": "Programs", "href": "programs.html" },
-    { "label": "Locations & Schedules", "href": "locations-schedules.html" },
-    { "label": "Contact", "href": "contact.html" }
+    {
+      "label": "Home",
+      "href": "index.html",
+      "icon": "home"
+    },
+    {
+      "label": "About Us",
+      "href": "about.html",
+      "icon": "info"
+    },
+    {
+      "label": "Locations & Schedules",
+      "href": "locations-schedules.html",
+      "icon": "map-pin"
+    },
+    {
+      "label": "Facebook Page",
+      "href": "https://www.facebook.com/profile.php?id=100057304066267",
+      "icon": "facebook"
+    },
+    {
+      "label": "Contact",
+      "href": "contact.html",
+      "icon": "mail"
+    }
   ],
   "programLinks": [
-    { "label": "Youth Programs", "href": "programs.html#youth" },
-    { "label": "Adult Programs", "href": "programs.html#adult" },
-    { "label": "Advanced Programs", "href": "programs.html#advanced" }
+    {
+      "label": "Youth Programs",
+      "href": "programs.html#youth",
+      "icon": "smile"
+    },
+    {
+      "label": "Adult Programs",
+      "href": "programs.html#adult",
+      "icon": "users"
+    },
+    {
+      "label": "Advanced Programs",
+      "href": "programs.html#advanced",
+      "icon": "star"
+    }
   ],
   "video": {
     "heading": "How to Tie Your Belt",
@@ -94,11 +138,15 @@
   },
   "legal": {
     "links": [
-      { "label": "Privacy Policy", "href": "#privacy" },
-      { "label": "Terms of Service", "href": "#terms" },
-      { "label": "Accessibility", "href": "#accessibility" }
+      {
+        "label": "Privacy Policy",
+        "href": "privacy.html"
+      }
     ],
     "copyright": "© 2025 Lone Star Institute of Taekwando. All rights reserved.",
-    "credit": { "label": "Rocinante Marketing", "href": "https://rocinantemarketing.com" }
+    "credit": {
+      "label": "Rocinante Marketing",
+      "href": "https://rocinantemarketing.com"
+    }
   }
 }
