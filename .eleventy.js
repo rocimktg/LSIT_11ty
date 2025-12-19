@@ -52,11 +52,52 @@ module.exports = function (eleventyConfig) {
     "load-nav.js": "load-nav.js",
     "robots.txt": "robots.txt"
   });
+  eleventyConfig.addPassthroughCopy({
+    "css/hero.css": "css/hero.css"
+  });
 
   // ---- REGISTER SHORTCODES ----
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addLiquidShortcode("image", imageShortcode);
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+
+  // ---- MINIFY HTML/CSS/JS OUTPUT ----
+  eleventyConfig.addTransform("minify", function (content, outputPath) {
+    if (outputPath && outputPath.endsWith(".html")) {
+      let minified = content;
+      // Strip HTML comments (preserve conditional comments if any appear)
+      minified = minified.replace(/<!--(?!\s*\[if).*?-->/gs, "");
+      // Collapse whitespace between tags and within text nodes
+      minified = minified.replace(/>\s+</g, "><").replace(/\s{2,}/g, " ").trim();
+      return minified;
+    }
+
+    if (outputPath && outputPath.endsWith(".css")) {
+      let minified = content;
+      // Drop non-license comments
+      minified = minified.replace(/\/\*[^!][\s\S]*?\*\//g, "");
+      // Tighten spaces around punctuation
+      minified = minified.replace(/\s*([{}:;,])\s*/g, "$1");
+      // Collapse remaining whitespace
+      minified = minified.replace(/\s{2,}/g, " ").trim();
+      // Remove optional trailing semicolons
+      minified = minified.replace(/;}/g, "}");
+      return minified;
+    }
+
+    if (outputPath && outputPath.endsWith(".js")) {
+      let minified = content;
+      // Remove block comments except /*! license */
+      minified = minified.replace(/\/\*[^!][\s\S]*?\*\//g, "");
+      // Remove simple line comments (avoid # directives)
+      minified = minified.replace(/(^|\s)\/\/(?!\s*#|\s*@).*$/gm, "$1");
+      // Collapse excessive blank lines
+      minified = minified.replace(/\n{2,}/g, "\n");
+      return minified.trim();
+    }
+
+    return content;
+  });
 
   // ---- RETURN DIRECTORIES ----
   return {

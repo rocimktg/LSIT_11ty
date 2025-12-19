@@ -1,0 +1,46 @@
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.1) contrast(1.05);
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.hero__fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.video-wrap.is-ready .hero__video {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-wrap.is-ready .hero__fallback {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (max-width: 767px) {
+  .hero__video {
+    display: none;
+  }
+
+  .hero__fallback {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}

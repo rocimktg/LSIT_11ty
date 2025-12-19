@@ -5,21 +5,6 @@
     if (!video || !wrap) return;
 
     const desktopQuery = window.matchMedia('(min-width: 768px)');
-    const source = video.querySelector('source');
-
-    const loadSource = () => {
-      if (source?.dataset.src) {
-        source.src = source.dataset.src;
-      }
-      video.load();
-    };
-
-    const unloadSource = () => {
-      if (source) {
-        source.removeAttribute('src');
-      }
-      video.load();
-    };
 
     const markPlaying = (isPlaying) => {
       if (isPlaying) {
@@ -27,6 +12,10 @@
       } else {
         wrap.classList.remove('is-playing');
       }
+    };
+
+    const markReady = () => {
+      wrap.classList.add('is-ready');
     };
 
     const ensureInline = () => {
@@ -39,11 +28,9 @@
 
     const tryPlay = () => {
       if (!desktopQuery.matches) {
-        unloadSource();
         markPlaying(false);
         return;
       }
-      loadSource();
       ensureInline();
       const playPromise = video.play();
       if (playPromise && typeof playPromise.then === 'function') {
@@ -53,21 +40,18 @@
       }
     };
 
-    const resetToPoster = () => {
-      markPlaying(false);
-      video.setAttribute('poster', 'img/fallback.jpg');
-    };
-
     markPlaying(false);
     tryPlay();
 
+    video.addEventListener('loadeddata', markReady, { once: true });
+    video.addEventListener('canplay', markReady, { once: true });
     video.addEventListener('playing', () => markPlaying(true));
     video.addEventListener('pause', () => markPlaying(false));
     video.addEventListener('ended', () => {
       video.currentTime = 0;
       tryPlay();
     });
-    video.addEventListener('error', resetToPoster);
+    video.addEventListener('error', () => markPlaying(false));
     video.addEventListener('stalled', tryPlay);
 
     document.addEventListener('visibilitychange', () => {

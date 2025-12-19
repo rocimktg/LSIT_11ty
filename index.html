@@ -20,6 +20,8 @@ templateEngineOverride: njk
     <meta name="twitter:title" content="Taekwondo and Martial Arts in Arlington TX | Lone Star Institute of Taekwondo">
     <meta name="twitter:description" content="Family-friendly Taekwondo and martial arts in Arlington and Pantego, TX—confidence, focus, and real self-defense.">
     <meta name="twitter:image" content="https://lsitkd.com/img/fallback.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/overlay.css">
@@ -62,10 +64,10 @@ templateEngineOverride: njk
     <main>
         <section class="hero hero--emerald" aria-labelledby="hero-heading">
             <div class="video-wrap">
-                <video class="hero__video" autoplay muted loop playsinline webkit-playsinline preload="none" poster="img/fallback.jpg" aria-hidden="true">
-                    <source data-src="video/LSIT_BW.mp4" type="video/mp4" media="(min-width: 768px)">
+                <video class="hero__video" autoplay muted loop playsinline webkit-playsinline preload="metadata" aria-hidden="true">
+                    <source src="video/LSIT_BW.mp4" type="video/mp4" media="(min-width: 768px)">
                 </video>
-                {% image "img/fallback.jpg", "", "(min-width: 1200px) 1200px, 100vw", { class: "hero__fallback", "aria-hidden": "true", widths: [640, 960, 1280] } %}
+                {% image "img/fallback.webp", "", "(min-width: 1200px) 1200px, 100vw", { class: "hero__fallback", "aria-hidden": "true", widths: [640, 960, 1280] } %}
 
                 <div class="overlay--gradient is-pulsing" aria-hidden="true"></div>
                 <div class="overlay--grain" aria-hidden="true"></div>
