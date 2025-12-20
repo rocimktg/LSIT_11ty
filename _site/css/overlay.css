@@ -156,7 +156,7 @@
 
 .text-glass .hero__eyebrow {
     letter-spacing: 0.45em;
-    color: rgba(228, 255, 247, 0.72);
+    color: rgba(255, 255, 255, 0.72);
 }
 
 .text-glass .hero__title {
@@ -205,14 +205,14 @@
 }
 
 .hero--emerald .hero__button--secondary {
-    border-color: rgba(228, 255, 247, 0.5);
-    color: rgba(228, 255, 247, 0.9);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.9);
     background: rgba(0, 0, 0, 0.35);
 }
 
 .hero--emerald .hero__button--secondary:hover,
 .hero--emerald .hero__button--secondary:focus-visible {
-    background: rgba(228, 255, 247, 0.9);
+    background: rgba(255, 255, 255, 0.9);
     color: #021b16;
     border-color: transparent;
 }
