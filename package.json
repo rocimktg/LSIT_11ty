@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "eleventy --serve --port=8080",
-    "build": "eleventy",
+    "build": "npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
