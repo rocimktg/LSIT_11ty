@@ -115,16 +115,7 @@ templateEngineOverride: njk
                     </div>
 
                     <div class="lead-capture__card">
-                        <form
-                            id="lead-form"
-                            name="lead-capture"
-                            class="lead-capture__form"
-                            action="/"
-                            method="post"
-                            netlify
-                            data-netlify="true"
-                            netlify-honeypot="bot-field"
-                            aria-describedby="lead-capture-disclaimer">
+                        <form id="lead-form" name="lead-capture" class="lead-capture__form" action="/" method="post" data-netlify="true" aria-describedby="lead-capture-disclaimer" data-netlify-honeypot="bot-field">
                             <input type="hidden" name="form-name" value="lead-capture">
                             <p class="visually-hidden">
                                 <label>Do not fill this field if you are human.
