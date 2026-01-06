@@ -495,7 +495,7 @@
   </section>
 
   <div class="site-footer__bottom">
-    <p class="site-footer__copyright">&amp;copy; 2025 Lone Star Institute of Taekwando. All rights reserved.</p>
+    <p class="site-footer__copyright">&copy; <span class="js-current-year">2025</span> Lone Star Institute of Taekwando. All rights reserved.</p>
     <div class="site-footer__legal">
       
         
@@ -557,5 +557,14 @@
       pills.forEach(pill => pill.addEventListener("click", () => pill.blur()));
     });
   </script>
+<script>
+  (function() {
+    var year = new Date().getFullYear();
+    var els = document.querySelectorAll('.js-current-year');
+    for (var i = 0; i < els.length; i++) {
+      els[i].textContent = year;
+    }
+  })();
+</script>
 </body>
 </html>
