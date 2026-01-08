@@ -226,6 +226,12 @@
         const fieldWrap = leadForm.querySelector("[data-lead-fields]");
         const returnLink = document.querySelector("[data-success-action]");
         const defaultButtonHTML = submitButton ? submitButton.innerHTML : "";
+        const redirectMode = typeof FREEWEEK_REDIRECT_MODE === "string"
+          ? FREEWEEK_REDIRECT_MODE
+          : "auto";
+        const redirectDelay = Number.isFinite(FREEWEEK_REDIRECT_DELAY)
+          ? FREEWEEK_REDIRECT_DELAY
+          : 3000;
 
         const setSubmittingState = (isSubmitting) => {
           if (!submitButton) {
@@ -252,18 +258,21 @@
           if (successMessage) {
             successMessage.hidden = false;
           }
+          if (errorMessage) {
+            errorMessage.hidden = true;
+          }
 
-          if (FREEWEEK_REDIRECT_MODE === "button") {
+          if (redirectMode === "button") {
             if (returnLink) {
               returnLink.hidden = false;
             }
             return;
           }
 
-          if (FREEWEEK_REDIRECT_MODE === "auto") {
+          if (redirectMode === "auto") {
             window.setTimeout(() => {
               window.location.href = "/index.html";
-            }, FREEWEEK_REDIRECT_DELAY);
+            }, redirectDelay);
           }
         };
 
@@ -301,6 +310,9 @@
             handleSuccess();
           } catch (error) {
             console.error("Lead capture form submission failed", error);
+            if (successMessage) {
+              successMessage.hidden = true;
+            }
             if (errorMessage) {
               errorMessage.hidden = false;
             }
