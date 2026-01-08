@@ -14,8 +14,8 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="css/reset_and_variables.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/reset_and_variables.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <script>
       // Toggle redirect behavior: "auto" or "button"
       const FREEWEEK_REDIRECT_MODE = "auto";
@@ -107,7 +107,7 @@
     <main class="freeweek">
       <header class="freeweek__header">
         <img
-          src="img/lsit_logo.svg"
+          src="/img/lsit_logo.svg"
           class="freeweek__logo"
           alt="Lonestar Institute of Taekwando"
         >
@@ -178,7 +178,7 @@
               <p id="lead-capture-disclaimer" class="lead-capture__disclaimer">
                 By submitting, you agree to receive promotional messages from Lonestar
                 Institute of Taekwando. Reply STOP to opt out. Msg &amp; data rates may
-                apply. See our <a href="privacy.html">Privacy Policy</a>.
+                apply. See our <a href="/privacy.html">Privacy Policy</a>.
               </p>
             </div>
             <div
@@ -191,7 +191,7 @@
               <p>We will reach back out to you soon. Thanks for filling out the form.</p>
               <a
                 class="hero__button hero__button--tertiary freeweek__return"
-                href="index.html"
+                href="/index.html"
                 data-success-action
                 hidden
               >
@@ -262,7 +262,7 @@
 
           if (FREEWEEK_REDIRECT_MODE === "auto") {
             window.setTimeout(() => {
-              window.location.href = "index.html";
+              window.location.href = "/index.html";
             }, FREEWEEK_REDIRECT_DELAY);
           }
         };
