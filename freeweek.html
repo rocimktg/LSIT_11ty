@@ -16,11 +16,6 @@
     >
     <link rel="stylesheet" href="/css/reset_and_variables.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <script>
-      // Toggle redirect behavior: "auto" or "button"
-      const FREEWEEK_REDIRECT_MODE = "auto";
-      const FREEWEEK_REDIRECT_DELAY = 10000;
-    </script>
     <style>
       body.freeweek-page {
         background:
@@ -96,11 +91,6 @@
         margin: 0;
       }
 
-      .freeweek__countdown {
-        font-family: Arial, sans-serif;
-        font-size: 0.95rem;
-        color: rgba(7, 12, 24, 0.6);
-      }
 
       @media (min-width: 768px) {
         .freeweek {
@@ -128,7 +118,7 @@
             id="lead-form"
             name="Free Week Lead Form - Website"
             class="lead-capture__form"
-            action="/"
+            action="/freeweek-success.html"
             method="post"
             data-netlify="true"
             aria-describedby="lead-capture-disclaimer"
@@ -187,206 +177,10 @@
                 apply. See our <a href="/privacy.html">Privacy Policy</a>.
               </p>
             </div>
-            <div
-              class="lead-capture__status lead-capture__status--success freeweek__status"
-              id="lead-success"
-              role="status"
-              aria-live="polite"
-              hidden
-            >
-              <p>We will reach back out to you soon. Thanks for filling out the form.</p>
-              <p class="freeweek__countdown" data-countdown hidden>
-                Redirecting to the main website in
-                <span data-countdown-value>10</span> seconds.
-              </p>
-              <a
-                class="hero__button hero__button--tertiary freeweek__return"
-                href="/index.html"
-                data-success-action
-                hidden
-              >
-                Go to Main Website
-              </a>
-            </div>
-            <p
-              class="lead-capture__status lead-capture__status--error freeweek__status"
-              id="lead-error"
-              role="status"
-              aria-live="polite"
-              hidden
-            >
-              We couldn't send your request just now. Please try again or email
-              <a href="mailto:info@lsitkd.com">info@lsitkd.com</a>.
-            </p>
           </form>
         </div>
       </section>
     </main>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const leadForm = document.getElementById("lead-form");
-        if (!leadForm) {
-          return;
-        }
-
-        const submitButton = leadForm.querySelector('button[type="submit"]');
-        const successMessage = document.getElementById("lead-success");
-        const errorMessage = document.getElementById("lead-error");
-        const fieldWrap = leadForm.querySelector("[data-lead-fields]");
-        const returnLink = document.querySelector("[data-success-action]");
-        const countdownWrap = document.querySelector("[data-countdown]");
-        const countdownValue = document.querySelector("[data-countdown-value]");
-        const defaultButtonHTML = submitButton ? submitButton.innerHTML : "";
-        const redirectMode = typeof FREEWEEK_REDIRECT_MODE === "string"
-          ? FREEWEEK_REDIRECT_MODE
-          : "auto";
-        const redirectDelay = Number.isFinite(FREEWEEK_REDIRECT_DELAY)
-          ? FREEWEEK_REDIRECT_DELAY
-          : 10000;
-        let countdownTimerId = null;
-        let redirectTimerId = null;
-
-        const clearRedirectTimers = () => {
-          if (countdownTimerId) {
-            window.clearInterval(countdownTimerId);
-            countdownTimerId = null;
-          }
-          if (redirectTimerId) {
-            window.clearTimeout(redirectTimerId);
-            redirectTimerId = null;
-          }
-        };
-
-        const startCountdown = () => {
-          if (!countdownWrap || !countdownValue) {
-            return;
-          }
-
-          let remainingSeconds = Math.ceil(redirectDelay / 1000);
-          countdownValue.textContent = String(remainingSeconds);
-          countdownWrap.hidden = false;
-
-          countdownTimerId = window.setInterval(() => {
-            remainingSeconds -= 1;
-            if (remainingSeconds <= 0) {
-              countdownValue.textContent = "0";
-              window.clearInterval(countdownTimerId);
-              countdownTimerId = null;
-              return;
-            }
-            countdownValue.textContent = String(remainingSeconds);
-          }, 1000);
-        };
-
-        const showError = () => {
-          if (successMessage) {
-            successMessage.hidden = true;
-          }
-          if (countdownWrap) {
-            countdownWrap.hidden = true;
-          }
-          clearRedirectTimers();
-          if (errorMessage) {
-            errorMessage.hidden = false;
-          }
-        };
-
-        const setSubmittingState = (isSubmitting) => {
-          if (!submitButton) {
-            return;
-          }
-
-          submitButton.disabled = isSubmitting;
-          submitButton.classList.toggle("is-loading", isSubmitting);
-          submitButton.innerHTML = isSubmitting ? "Sending..." : defaultButtonHTML;
-        };
-
-        const encodeFormData = (formData) => {
-          const params = new URLSearchParams();
-          formData.forEach((value, key) => {
-            params.append(key, value);
-          });
-          return params.toString();
-        };
-
-        const handleSuccess = () => {
-          clearRedirectTimers();
-          if (fieldWrap) {
-            fieldWrap.hidden = true;
-          }
-          if (successMessage) {
-            successMessage.hidden = false;
-          }
-          if (errorMessage) {
-            errorMessage.hidden = true;
-          }
-          if (returnLink) {
-            returnLink.hidden = false;
-          }
-
-          if (redirectMode === "auto") {
-            startCountdown();
-            redirectTimerId = window.setTimeout(() => {
-              window.location.href = "/index.html";
-            }, redirectDelay);
-            return;
-          }
-
-          if (countdownWrap) {
-            countdownWrap.hidden = true;
-          }
-        };
-
-        leadForm.addEventListener("submit", async (event) => {
-          event.preventDefault();
-
-          if (successMessage) {
-            successMessage.hidden = true;
-          }
-          if (errorMessage) {
-            errorMessage.hidden = true;
-          }
-          if (countdownWrap) {
-            countdownWrap.hidden = true;
-          }
-          clearRedirectTimers();
-
-          const formData = new FormData(leadForm);
-          if (!formData.has("form-name")) {
-            formData.append(
-              "form-name",
-              leadForm.getAttribute("name") || "Free Week Lead Form - Website"
-            );
-          }
-
-          try {
-            setSubmittingState(true);
-            const response = await fetch("/", {
-              method: "POST",
-              headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              body: encodeFormData(formData)
-            });
-
-            if (!response.ok) {
-              console.warn(`Form submission returned ${response.status}`);
-            }
-
-            leadForm.reset();
-            handleSuccess();
-          } catch (error) {
-            console.error("Lead capture form submission failed", error);
-            const isOffline = typeof navigator !== "undefined" && navigator.onLine === false;
-            if (isOffline) {
-              showError();
-            } else {
-              handleSuccess();
-            }
-          } finally {
-            setSubmittingState(false);
-          }
-        });
-      });
-    </script>
   </body>
 </html>
