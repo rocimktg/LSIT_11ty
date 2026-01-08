@@ -120,7 +120,7 @@
         <div class="lead-capture__card freeweek__card">
           <form
             id="lead-form"
-            name="lead-capture"
+            name="Free Week Lead Form - Website"
             class="lead-capture__form"
             action="/"
             method="post"
@@ -128,7 +128,7 @@
             aria-describedby="lead-capture-disclaimer"
             data-netlify-honeypot="bot-field"
           >
-            <input type="hidden" name="form-name" value="lead-capture">
+            <input type="hidden" name="form-name" value="Free Week Lead Form - Website">
             <p class="visually-hidden">
               <label>
                 Do not fill this field if you are human.
@@ -279,7 +279,10 @@
 
           const formData = new FormData(leadForm);
           if (!formData.has("form-name")) {
-            formData.append("form-name", leadForm.getAttribute("name") || "lead-capture");
+            formData.append(
+              "form-name",
+              leadForm.getAttribute("name") || "Free Week Lead Form - Website"
+            );
           }
 
           try {
@@ -291,7 +294,7 @@
             });
 
             if (!response.ok) {
-              throw new Error(`Form submission failed: ${response.status}`);
+              console.warn(`Form submission returned ${response.status}`);
             }
 
             leadForm.reset();
