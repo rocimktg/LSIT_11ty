@@ -14,6 +14,7 @@
     { "label": "ABOUT US", "href": "about.html" },
     { "label": "PROGRAMS", "href": "programs.html" },
     { "label": "LOCATIONS & SCHEDULES", "href": "locations-schedules.html" },
+    { "label": "ANNOUNCEMENTS", "href": "announcements.html" },
     { "label": "CONTACT", "href": "contact.html" }
   ],
   "cta": {

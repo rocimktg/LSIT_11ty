@@ -1,0 +1,126 @@
+---
+permalink: announcements.html
+templateEngineOverride: njk
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "head.njk" %}
+  <title>Announcements | Lone Star Institute of Taekwondo</title>
+  <meta name="description" content="Read the latest announcements from Lone Star Institute of Taekwondo in Arlington, TX.">
+  <link rel="canonical" href="https://lsitkd.com/announcements.html">
+  <meta property="og:title" content="Announcements | Lone Star Institute of Taekwondo">
+  <meta property="og:description" content="Read the latest announcements from Lone Star Institute of Taekwondo in Arlington, TX.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lsitkd.com/announcements.html">
+  <meta property="og:image" content="https://lsitkd.com/img/fallback.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Announcements | Lone Star Institute of Taekwondo">
+  <meta name="twitter:description" content="Read the latest announcements from Lone Star Institute of Taekwondo in Arlington, TX.">
+  <meta name="twitter:image" content="https://lsitkd.com/img/fallback.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/reset_and_variables.css">
+</head>
+<body>
+  {% include "nav.njk" %}
+
+  <main>
+    <section class="page-hero page-hero--announcements" aria-label="Announcements">
+      <div class="page-hero__inner">
+        <h1 class="page-hero__title">Announcements</h1>
+      </div>
+    </section>
+    <section class="section page" aria-label="Announcements">
+      {% if announcements and announcements.items and announcements.items.length %}
+        {% if announcements.sticky and announcements.sticky.length %}
+          <div class="card-grid announcements-sticky">
+            {% for announcement in announcements.sticky %}
+              <article class="card announcement-card announcement-card--sticky">
+                {% if announcement.title %}
+                  <h3>{{ announcement.title }}</h3>
+                {% endif %}
+                {% if announcement.date or announcement.location or announcement.time %}
+                  <div class="announcement-meta">
+                    {% if announcement.date %}
+                      <p class="announcement-meta__item"><span class="announcement-meta__label">When: </span><span class="announcement-meta__value">{{ announcement.date }}</span></p>
+                    {% endif %}
+                    {% if announcement.location %}
+                      <p class="announcement-meta__item"><span class="announcement-meta__label">Where: </span><span class="announcement-meta__value">{{ announcement.location }}</span></p>
+                    {% endif %}
+                    {% if announcement.time %}
+                      <p class="announcement-meta__item"><span class="announcement-meta__label">Time: </span><span class="announcement-meta__value">{{ announcement.time }}</span></p>
+                    {% endif %}
+                  </div>
+                {% endif %}
+                {% if announcement.body %}
+                  <p class="copy">{{ announcement.body }}</p>
+                {% endif %}
+                {% if announcement.linkUrl %}
+                  <a class="announcement-link" href="{{ announcement.linkUrl }}" target="_blank" rel="noopener">
+                    {{ announcement.linkTitle or announcement.linkUrl }}
+                  </a>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if announcements.regular and announcements.regular.length %}
+          <div class="card-grid card-grid--2 announcements-grid">
+            {% for announcement in announcements.regular %}
+              <article class="card announcement-card">
+                {% if announcement.title %}
+                  <h3>{{ announcement.title }}</h3>
+                {% endif %}
+                {% if announcement.date or announcement.location or announcement.time %}
+                  <div class="announcement-meta">
+                    {% if announcement.date %}
+                      <p class="announcement-meta__item"><span class="announcement-meta__label">When: </span><span class="announcement-meta__value">{{ announcement.date }}</span></p>
+                    {% endif %}
+                    {% if announcement.location %}
+                      <p class="announcement-meta__item"><span class="announcement-meta__label">Where: </span><span class="announcement-meta__value">{{ announcement.location }}</span></p>
+                    {% endif %}
+                    {% if announcement.time %}
+                      <p class="announcement-meta__item"><span class="announcement-meta__label">Time: </span><span class="announcement-meta__value">{{ announcement.time }}</span></p>
+                    {% endif %}
+                  </div>
+                {% endif %}
+                {% if announcement.body %}
+                  <p class="copy">{{ announcement.body }}</p>
+                {% endif %}
+                {% if announcement.linkUrl %}
+                  <a class="announcement-link" href="{{ announcement.linkUrl }}" target="_blank" rel="noopener">
+                    {{ announcement.linkTitle or announcement.linkUrl }}
+                  </a>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% else %}
+        <div class="card-grid announcements-grid">
+          <article class="card announcement-card">
+            <h3>No announcements yet</h3>
+            <p class="copy">Please check back soon.</p>
+          </article>
+        </div>
+      {% endif %}
+    </section>
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+      lucide.createIcons();
+  </script>
+
+  <script src="tenets-marquee.js" defer></script>
+  <script src="menu.js" defer></script>
+</body>
+</html>

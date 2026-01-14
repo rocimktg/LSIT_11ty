@@ -1936,10 +1936,21 @@
     linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
     url('../img/instructors/instructors.jpg') center/cover no-repeat;
 }
+.page-hero--announcements {
+  background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url('../img/announce.jpg') center/cover no-repeat;
+}
 .page-hero__title {
   font-size: clamp(2.2rem, 5.5vw, 3.25rem);
   letter-spacing: .04em;
   text-transform: uppercase;
+}
+
+.page-hero__copy {
+  margin: 0.6rem auto 0;
+  max-width: 42rem;
+  color: #fff;
 }
 
 html { scroll-behavior: smooth; }
@@ -2088,6 +2099,8 @@ html { scroll-behavior: smooth; }
 }
 .card h2 { font-size: clamp(1.4rem, 3.2vw, 2rem); letter-spacing: .02em; }
 .lead { font-family: Arial, sans-serif; color: var(--text-medium); line-height: 1.7; font-size: clamp(1rem, 2.4vw, 1.125rem); }
+.copy { font-family: Arial, sans-serif; color: var(--text-medium); line-height: 1.8; font-size: 1rem; }
+.page-hero .page-hero__copy { color: #fff; }
 .bullets { font-family: Arial, sans-serif; color: var(--text-medium); line-height: 1.8; }
 .bullets li { list-style: disc; margin-left: 1.25rem; }
 
@@ -2239,6 +2252,42 @@ html { scroll-behavior: smooth; }
   display: grid;
   gap: 12px;
 }
+
+/* Announcements */
+.announcements-sticky { margin-bottom: clamp(16px, 3vw, 24px); }
+.announcements-grid { }
+.announcement-card {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: none;
+  padding: clamp(16px, 2.6vw, 22px);
+  display: grid;
+  gap: 10px;
+}
+.announcement-card h3 { font-size: clamp(1.1rem, 2.2vw, 1.35rem); letter-spacing: .02em; }
+.announcement-card--sticky { border: 2px solid var(--primary); }
+.announcement-meta {
+  display: grid;
+  gap: 6px;
+  font-family: Arial, sans-serif;
+  color: var(--text-medium);
+  font-size: 0.95rem;
+}
+.announcement-meta__item { margin: 0; }
+.announcement-meta__label {
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--text-dark);
+}
+.announcement-link {
+  color: var(--primary);
+  text-decoration: underline;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  justify-self: start;
+}
+.announcement-link:visited { color: var(--primary); }
 
 /* Sections */
 /* Keep text cards in program split packed at the top */

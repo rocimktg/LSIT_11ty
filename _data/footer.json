@@ -80,6 +80,11 @@
       "icon": "map-pin"
     },
     {
+      "label": "Announcements",
+      "href": "announcements.html",
+      "icon": "megaphone"
+    },
+    {
       "label": "Facebook Page",
       "href": "https://www.facebook.com/profile.php?id=100057304066267",
       "icon": "facebook"
