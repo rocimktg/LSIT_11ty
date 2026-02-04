@@ -98,17 +98,17 @@
   "programLinks": [
     {
       "label": "Youth Programs",
-      "href": "programs.html#youth",
+      "href": "classes.html#youth",
       "icon": "smile"
     },
     {
       "label": "Adult Programs",
-      "href": "programs.html#adult",
+      "href": "classes.html#adult",
       "icon": "users"
     },
     {
       "label": "Advanced Programs",
-      "href": "programs.html#advanced",
+      "href": "classes.html#advanced",
       "icon": "star"
     }
   ],
