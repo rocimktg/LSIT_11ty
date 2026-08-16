@@ -44,7 +44,7 @@
   ],
   "brand": {
     "logoSrc": "img/lsit_logo.svg",
-    "logoAlt": "Lonestar Institute of Taekwando logo",
+    "logoAlt": "Lonestar Institute of Taekwondo logo",
     "homeUrl": "index.html",
     "logoText": "LONE STAR\nINSTITUTE OF\nTAEKWANDO",
     "tagline": "Building confident leaders through disciplined martial arts training for every age and stage."
@@ -78,11 +78,6 @@
       "label": "Locations & Schedules",
       "href": "locations-schedules.html",
       "icon": "map-pin"
-    },
-    {
-      "label": "Announcements",
-      "href": "announcements.html",
-      "icon": "megaphone"
     },
     {
       "label": "Facebook Page",
@@ -148,10 +143,6 @@
         "href": "privacy.html"
       }
     ],
-    "copyright": "© 2026 Lone Star Institute of Taekwando. All rights reserved.",
-    "credit": {
-      "label": "Rocinante Marketing",
-      "href": "https://rocinantemarketing.com"
-    }
+    "copyrightHolder": "Lone Star Institute of Taekwondo. All rights reserved."
   }
 }

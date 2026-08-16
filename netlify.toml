@@ -1,3 +1,9 @@
 [build]
   command = "npm ci && npx @11ty/eleventy --input . --output _site"
   publish = "_site"
+
+[[redirects]]
+  from = "/calendar2.html"
+  to = "/calendar.html"
+  status = 301
+  force = true

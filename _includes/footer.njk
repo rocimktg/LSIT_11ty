@@ -69,10 +69,10 @@
 </section>
 
 <footer class="site-footer" aria-labelledby="footer-heading">
-  <h2 id="footer-heading" class="visually-hidden">Lonestar Institute of Taekwando Footer</h2>
+  <h2 id="footer-heading" class="visually-hidden">Lonestar Institute of Taekwondo Footer</h2>
   <div class="site-footer__main">
     <div class="site-footer__column site-footer__column--brand">
-      <a href="{{ brand.homeUrl }}" class="site-footer__logo" aria-label="Lonestar Institute of Taekwando home">
+      <a href="{{ brand.homeUrl }}" class="site-footer__logo" aria-label="Lonestar Institute of Taekwondo home">
         <img src="{{ brand.logoSrc }}" alt="{{ brand.logoAlt }}">
         <span class="logo-text">{{ brand.logoText | replace('\n', '<br>') | safe }}</span>
       </a>
@@ -105,7 +105,9 @@
         {% for link in quickLinks %}
         <li>
           <a href="{{ link.href }}">
-            {% if link.icon %}<i data-lucide="{{ link.icon }}"></i>{% endif %}
+            {% if link.icon == "facebook" %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            {% elif link.icon %}<i data-lucide="{{ link.icon }}"></i>{% endif %}
             {{ link.label }}
           </a>
         </li>
@@ -157,14 +159,13 @@
   </section>
 
   <div class="site-footer__bottom">
-    <p class="site-footer__copyright">{{ legal.copyright }}</p>
+    <p class="site-footer__copyright">&copy; {{ currentYear }} {{ legal.copyrightHolder }}</p>
     <div class="site-footer__legal">
       {% for link in legal.links %}
         {% if not loop.first %}<span aria-hidden="true">|</span>{% endif %}
         <a href="{{ link.href }}">{{ link.label }}</a>
       {% endfor %}
     </div>
-    <p class="site-footer__credit">Website by <a href="{{ legal.credit.href }}">{{ legal.credit.label }}</a></p>
   </div>
 </footer>
 

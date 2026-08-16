@@ -1,7 +1,7 @@
 ﻿{
   "logo": {
     "src": "img/lsit_logo.svg",
-    "alt": "Lonestar Institute of Taekwando",
+    "alt": "Lonestar Institute of Taekwondo",
     "homeUrl": "index.html"
   },
   "brandTagline": "Arlington, TX | Taekwondo | Martial Arts",
@@ -14,7 +14,6 @@
     { "label": "ABOUT US", "href": "about.html" },
     { "label": "CLASSES", "href": "classes.html" },
     { "label": "LOCATIONS & SCHEDULES", "href": "locations-schedules.html" },
-    { "label": "ANNOUNCEMENTS", "href": "announcements.html" },
     { "label": "CONTACT", "href": "contact.html" }
   ],
   "cta": {

@@ -1,3 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /freeweek.html
+Disallow: /freeweek-success.html
 Sitemap: https://lsitkd.com/sitemap.xml

@@ -38,6 +38,10 @@ async function imageShortcode(src, alt, sizes = "100vw", attrs = {}) {
 
 module.exports = function (eleventyConfig) {
 
+  // ---- GLOBAL DATA ----
+  // Computed once at build time, baked into the static HTML — no client-side JS needed.
+  eleventyConfig.addGlobalData("currentYear", () => new Date().getFullYear());
+
   // ---- PASSTHROUGH COPIES (your original config) ----
   eleventyConfig.addPassthroughCopy({
     css: "css",
@@ -48,8 +52,6 @@ module.exports = function (eleventyConfig) {
     pdfs: "pdfs",
     "tenets-marquee.js": "tenets-marquee.js",
     "menu.js": "menu.js",
-    "load-footer.js": "load-footer.js",
-    "load-nav.js": "load-nav.js",
     "robots.txt": "robots.txt"
   });
   eleventyConfig.addPassthroughCopy({
