@@ -1346,6 +1346,19 @@
             animation-delay: 0.12s;
         }
 
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        @media (max-width: 600px) {
+            .cta-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
         .hero__actions {
             display: flex;
             align-items: center;
@@ -1926,6 +1939,16 @@
     linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
     url('../img/banners/aboutus_hero.jpg') center/cover no-repeat;
 }
+.page-hero--arlington {
+  background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url('../img/banners/arlington_hero.jpg') center/cover no-repeat;
+}
+.page-hero--pantego {
+  background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url('../img/banners/pantego_hero.jpg') center/cover no-repeat;
+}
 .page-hero--locations {
   background:
     linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
@@ -2140,7 +2163,7 @@ html { scroll-behavior: smooth; }
   border-radius: 14px;
   overflow: hidden;
   background: #000;
-  min-height: clamp(220px, 28vw, 360px);
+  aspect-ratio: 4 / 3;
 }
 .about-overview__media img {
   width: 100%;
