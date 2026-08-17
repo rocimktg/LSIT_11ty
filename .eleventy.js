@@ -52,7 +52,14 @@ module.exports = function (eleventyConfig) {
     pdfs: "pdfs",
     "tenets-marquee.js": "tenets-marquee.js",
     "menu.js": "menu.js",
-    "robots.txt": "robots.txt"
+    "robots.txt": "robots.txt",
+    "favicon.ico": "favicon.ico",
+    "favicon.svg": "favicon.svg",
+    "favicon-96x96.png": "favicon-96x96.png",
+    "apple-touch-icon.png": "apple-touch-icon.png",
+    "web-app-manifest-192x192.png": "web-app-manifest-192x192.png",
+    "web-app-manifest-512x512.png": "web-app-manifest-512x512.png",
+    "site.webmanifest": "site.webmanifest"
   });
   eleventyConfig.addPassthroughCopy({
     "css/hero.css": "css/hero.css"
