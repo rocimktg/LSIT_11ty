@@ -85,9 +85,10 @@
       "icon": "facebook"
     },
     {
-      "label": "Contact",
-      "href": "contact.html",
-      "icon": "mail"
+      "label": "Leave a Review",
+      "href": "https://search.google.com/local/writereview?placeid=ChIJ081v_Oh8ToYRnBnvHa_Odso",
+      "icon": "star",
+      "external": true
     }
   ],
   "programLinks": [
@@ -104,7 +105,7 @@
     {
       "label": "Advanced Programs",
       "href": "classes.html#advanced",
-      "icon": "star"
+      "icon": "trophy"
     }
   ],
   "video": {
