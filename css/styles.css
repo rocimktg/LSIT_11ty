@@ -1247,7 +1247,7 @@
         }
 
         .site-footer__bottom a {
-            color: var(--footer-text);
+            color: #8a8a8a;
             transition: color 0.25s ease;
         }
 
@@ -1256,20 +1256,24 @@
             color: #fff;
         }
 
+        .site-footer__location-link {
+            text-decoration: underline;
+        }
+
         .site-footer__legal {
             display: inline-flex;
             gap: var(--spacing-sm);
             font-family: Arial, sans-serif;
-            color: var(--footer-muted);
-            font-size: var(--text-sm);
+            color: #8a8a8a;
+            font-size: var(--text-xs);
             align-items: center;
         }
 
         .site-footer__copyright,
         .site-footer__credit {
             font-family: Arial, sans-serif;
-            color: var(--footer-muted);
-            font-size: var(--text-sm);
+            color: #8a8a8a;
+            font-size: var(--text-xs);
         }
 
         .back-to-top {

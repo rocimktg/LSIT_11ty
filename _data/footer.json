@@ -137,6 +137,19 @@
     ]
   },
   "legal": {
+    "locations": {
+      "prefix": "Established in 2010 — we're proud to serve the residents of",
+      "items": [
+        {
+          "label": "Arlington",
+          "href": "taekwondo-arlington.html"
+        },
+        {
+          "label": "Pantego",
+          "href": "taekwondo-pantego.html"
+        }
+      ]
+    },
     "links": [
       {
         "label": "Privacy Policy",

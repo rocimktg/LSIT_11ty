@@ -161,6 +161,12 @@
   <div class="site-footer__bottom">
     <p class="site-footer__copyright">&copy; {{ currentYear }} {{ legal.copyrightHolder }}</p>
     <div class="site-footer__legal">
+      <span>{{ legal.locations.prefix }}
+      {% for item in legal.locations.items %}
+        {% if not loop.first %} &amp; {% endif %}<a href="{{ item.href }}" class="site-footer__location-link">{{ item.label }}</a>
+      {% endfor %}</span>
+    </div>
+    <div class="site-footer__legal">
       {% for link in legal.links %}
         {% if not loop.first %}<span aria-hidden="true">|</span>{% endif %}
         <a href="{{ link.href }}">{{ link.label }}</a>
